@@ -12,6 +12,8 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
++(AppDelegate *)AppDelegate;
+@property(nonatomic, readwrite) BOOL isFull;
 
 @end
 

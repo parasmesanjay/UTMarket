@@ -17,6 +17,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    HIDE_NAV_BAR
 
     [self setTextFieldBorder:txtEmail];
     [self setTextFieldBorder:txtPass];
