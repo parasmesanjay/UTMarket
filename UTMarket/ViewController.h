@@ -9,7 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
-
+{
+    
+    IBOutlet UITextField *txtEmail;
+    IBOutlet UITextField *txtPass;
+    
+}
 
 @end
 
