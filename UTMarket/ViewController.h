@@ -8,12 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import <GoogleSignIn/GoogleSignIn.h>
+
+@interface ViewController : UIViewController<FBSDKLoginButtonDelegate,GIDSignInUIDelegate>
 {
+    IBOutlet UIView *viewMain;
     
     IBOutlet UITextField *txtEmail;
     IBOutlet UITextField *txtPass;
+    IBOutlet UIButton *btnFB;
     
+    FBSDKLoginButton *fbButton;
 }
 
 @end

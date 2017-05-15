@@ -45,11 +45,17 @@
                                         <rect key="frame" x="68" y="170" width="85" height="85"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <state key="normal" backgroundImage="facebook.png"/>
+                                        <connections>
+                                            <action selector="btnFBClk:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fra-sw-fzf"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="yR6-jj-G3V">
                                         <rect key="frame" x="221" y="170" width="85" height="85"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <state key="normal" backgroundImage="gplus.png"/>
+                                        <connections>
+                                            <action selector="tapGID:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6Yn-2d-Qjg"/>
+                                        </connections>
                                     </button>
                                     <view contentMode="scaleToFill" misplaced="YES" id="KA1-Kd-24v">
                                         <rect key="frame" x="30" y="295" width="315" height="70"/>
@@ -126,8 +132,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="i5f-NZ-Ifi"/>
                     <connections>
+                        <outlet property="btnFB" destination="lLC-PF-8vY" id="zNA-DL-T2f"/>
                         <outlet property="txtEmail" destination="gjG-Ni-FTv" id="qVy-Qg-eT8"/>
                         <outlet property="txtPass" destination="Ama-7q-bKz" id="FnE-JT-x3v"/>
+                        <outlet property="viewMain" destination="41g-xW-djk" id="Whg-Gt-VQ4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
