@@ -26,7 +26,6 @@
 
     self.view.backgroundColor = WHITE_COLOR;
     
-    
     if (_tag == 0)
     {
         [self showView:_info];
@@ -84,12 +83,10 @@
             [view addSubview:viewLabel];
         }
         
-        
         view.frame = CGRectMake(0,0, WIDTH, view.frame.size.height+48*4+10);
         mainScroll.contentSize = CGSizeMake(WIDTH,view.frame.size.height);
-
     }
-    
+
     // https://github.com/parasmesanjay/UTMarket.git
 }
 
