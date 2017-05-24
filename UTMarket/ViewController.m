@@ -196,7 +196,8 @@ didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
     [textField.layer addSublayer:border];
     textField.layer.masksToBounds = YES;
 }
-//change the color and text value for place holder...
+
+// change the color and text value for place holder...
 
 -(void)placholderTextColorChange:(NSString *)textValue :(UITextField *)textField
 {
@@ -211,10 +212,9 @@ didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
 }
 
 
-- (IBAction)tapLogin:(UIButton *)sender {
-    
+- (IBAction)tapLogin:(UIButton *)sender
+{
     [self performSegueWithIdentifier:@"goHome" sender:nil];
-
 }
 
 

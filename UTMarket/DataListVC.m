@@ -8,8 +8,12 @@
 
 #import "DataListVC.h"
 #import "ViewCell.h"
-@interface DataListVC ()
+#import "DetailVC.h"
 
+@interface DataListVC ()
+{
+    NSArray *arrDetail;
+}
 @end
 
 @implementation DataListVC
@@ -67,6 +71,8 @@
         {
             // NSLog(@"%@",JSON);
 
+            arrDetail = JSON[@"data"];
+            
             for (int i = 0; i<[JSON[@"data"] count]; i++)
             {
                 ViewCell *view = [[[NSBundle mainBundle] loadNibNamed:@"View" owner:self options:nil] objectAtIndex:0];
@@ -136,6 +142,10 @@
                 
                 NSURL *url = [NSURL URLWithString:[urlSrting stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
                 [view.image sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"question"]];
+                
+                view.btn.tag = i;
+                [view.btn addTarget:self action:@selector(tapBox:) forControlEvents:UIControlEventTouchUpInside];
+
             }
             
         } @catch (NSException *exception) {
@@ -145,13 +155,21 @@
         }
         // // array = JSON[@"data"];
     }];
+}
+
+-(void)tapBox:(UIButton *)sender
+{
+    DetailVC *obj = [[DetailVC alloc]init];
+    obj.info = arrDetail[sender.tag];
+    obj.tag = _tag;
+    [self.navigationController pushViewController:obj animated:YES];
     
 }
+
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    
 }
 
 @end

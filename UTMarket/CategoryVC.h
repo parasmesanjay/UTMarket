@@ -10,5 +10,5 @@
 
 @interface CategoryVC : UIViewController<UITableViewDelegate,UITableViewDataSource,UIGestureRecognizerDelegate>
 @property (nonatomic,strong) NSDictionary *dic;
-
+@property (nonatomic,readwrite) NSInteger tag;
 @end
