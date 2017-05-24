@@ -54,6 +54,7 @@
 
 -(void)apActionSheetGetImage:(UIImage *)selectedPhoto
 {
+    imgThumb.image = selectedPhoto;
     images = [NSMutableArray array];
     [images addObject:selectedPhoto];
 
@@ -72,7 +73,8 @@
 
 -(void)apActionSheetGetVideoThumbImage:(UIImage *)selectedVideoThumbImage
 {
-    
+    imgThumb.image = selectedVideoThumbImage;
+
 }
 
 -(void)APPImagePickerControllerDidCancel
@@ -96,9 +98,13 @@
 
 -(void) uploadFile
 {
-    AFHTTPSessionManager *manager;
-    manager = [[AFHTTPSessionManager alloc]init];
-    manager.responseSerializer = [AFJSONResponseSerializer serializerWithReadingOptions:NSJSONReadingAllowFragments | NSJSONReadingMutableContainers | NSJSONReadingMutableLeaves];
+//    AFHTTPSessionManager *manager;
+//    manager = [[AFHTTPSessionManager alloc]init];
+//    manager.responseSerializer = [AFJSONResponseSerializer serializerWithReadingOptions:NSJSONReadingAllowFragments | NSJSONReadingMutableContainers | NSJSONReadingMutableLeaves];
+    
+    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] init];
+    manager.securityPolicy.allowInvalidCertificates = YES;//This is for https
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     
     @try
     {
@@ -119,35 +125,27 @@
         
         // *************************  *************************
         
-        NSData *userData = [[NSUserDefaults standardUserDefaults]objectForKey:@"userDetails"];
-        NSDictionary *DictUserDetails = (NSDictionary*) [NSKeyedUnarchiver unarchiveObjectWithData:userData];
-        NSString *txt = [NSString stringWithFormat:@"%@",DictUserDetails[@"authenticationtoken"]];
-        
-        NSString *userId = [[NSUserDefaults standardUserDefaults]objectForKey:@"userid"];
-        
-        [manager.requestSerializer setValue:userId forHTTPHeaderField:@"userid"];
-        [manager.requestSerializer setValue:txt forHTTPHeaderField:@"authenticationtoken"];
-        
         // http://appone.biz/UTMarket/index.php?route=feed/rest_api/addPhoto
         // http://appone.biz/UTMarket/index.php?route=feed/rest_api/addVideo
         
         NSString *url;
-        //NSDictionary *dictUpload;
+        NSDictionary *dictUpload;
         
         if (IsPhoto)
         {
             url = [NSString stringWithFormat:@"http://appone.biz/UTMarket/index.php?route=feed/rest_api/addPhoto"];
-            //dictUpload = @{@"title":@""};
+            dictUpload = @{@"title":@""};
         }
         else
         {
             url = [NSString stringWithFormat:@"http://appone.biz/UTMarket/index.php?route=feed/rest_api/addVideo"];
-            //dictUpload = nil;
+            dictUpload = nil;
 
         }
         
         SVHUD_START
-        [manager POST:url parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData)
+        
+        [manager POST:url parameters:dictUpload constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData)
         {
             for (int i = 0; i < images.count; i++)
             {
@@ -179,17 +177,16 @@
                     [formData appendPartWithFileData:image_data1 name:parameter fileName:fName mimeType:@"image/jpeg"];
                 }
             }
-        } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject)
-        {
+        } success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject)
+         {
             @try
             {
+                NSMutableArray * responseJson = [[NSMutableArray alloc]init];
+                responseJson = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
                 
-                NSLog(@"%@",responseObject);
-                NSLog(@"%@",responseObject);
-                
-                NSInteger status = [responseObject[@"Code"] integerValue];
-                
-                if (status == 200)
+                NSLog(@"%@",responseJson);
+                                
+                if ([responseObject[@"success"] integerValue] == 1)
                 {
                     
                     /*[barProgress setProgress:1.0];
@@ -240,7 +237,7 @@
                  lblSelectedFileCount.text = [NSString stringWithFormat:@"0 File Selected"];*/
             }
             
-        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error)
+         } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error)
         {
             [SVProgressHUD dismiss];
             
