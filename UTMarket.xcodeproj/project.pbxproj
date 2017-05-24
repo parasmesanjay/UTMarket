@@ -93,6 +93,7 @@
 		DB52BA381EC6E70D0082C04F /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = DB52BA131EC6E70D0082C04F /* user.png */; };
 		DB52BA391EC6E70D0082C04F /* vehicle_image.png in Resources */ = {isa = PBXBuildFile; fileRef = DB52BA141EC6E70D0082C04F /* vehicle_image.png */; };
 		DB5E31411ECED05200A44445 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB5E31401ECED05200A44445 /* MapKit.framework */; };
+		DB7AB8951ED5C0A500A067D0 /* DetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DB7AB8941ED5C0A500A067D0 /* DetailVC.m */; };
 		DB7F78EF1ED3002C003D3A50 /* ViewHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = DB7F78ED1ED3002C003D3A50 /* ViewHeader.m */; };
 		DB7F78F01ED3002C003D3A50 /* ViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB7F78EE1ED3002C003D3A50 /* ViewHeader.xib */; };
 		DB7F78F21ED3008E003D3A50 /* sidebar_.png in Resources */ = {isa = PBXBuildFile; fileRef = DB7F78F11ED3008E003D3A50 /* sidebar_.png */; };
@@ -195,7 +196,6 @@
 		DB43D0EA1ED58DCF00C50157 /* DetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailView.xib; sourceTree = "<group>"; };
 		DB43D0EC1ED5A08F00C50157 /* DetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailView.h; sourceTree = "<group>"; };
 		DB43D0ED1ED5A08F00C50157 /* DetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailView.m; sourceTree = "<group>"; };
-		DB43D0F11ED5A35E00C50157 /* DetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailVC.h; sourceTree = "<group>"; };
 		DB43D0F21ED5A35E00C50157 /* DetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailVC.m; sourceTree = "<group>"; };
 		DB52B9D51EC6DE280082C04F /* UTMarket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UTMarket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB52B9D91EC6DE280082C04F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -241,6 +241,8 @@
 		DB52BA131EC6E70D0082C04F /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
 		DB52BA141EC6E70D0082C04F /* vehicle_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vehicle_image.png; sourceTree = "<group>"; };
 		DB5E31401ECED05200A44445 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		DB7AB8931ED5C0A500A067D0 /* DetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailVC.h; sourceTree = "<group>"; };
+		DB7AB8941ED5C0A500A067D0 /* DetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailVC.m; sourceTree = "<group>"; };
 		DB7F78EC1ED3002C003D3A50 /* ViewHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewHeader.h; sourceTree = "<group>"; };
 		DB7F78ED1ED3002C003D3A50 /* ViewHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewHeader.m; sourceTree = "<group>"; };
 		DB7F78EE1ED3002C003D3A50 /* ViewHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewHeader.xib; sourceTree = "<group>"; };
@@ -466,19 +468,11 @@
 			name = DetailView;
 			sourceTree = "<group>";
 		};
-		DB43D0F01ED5A32E00C50157 /* DetailVC */ = {
-			isa = PBXGroup;
-			children = (
-				DB43D0F11ED5A35E00C50157 /* DetailVC.h */,
-				DB43D0F21ED5A35E00C50157 /* DetailVC.m */,
-			);
-			name = DetailVC;
-			sourceTree = "<group>";
-		};
 		DB52B9CC1EC6DE280082C04F = {
 			isa = PBXGroup;
 			children = (
 				DB0B4AEA1EC711BB005AAF8E /* Liabrary */,
+				DB7F78EA1ED30017003D3A50 /* CustomViews */,
 				DB52B9D71EC6DE280082C04F /* UTMarket */,
 				DB52B9D61EC6DE280082C04F /* Products */,
 				DB0B4B471EC7269A005AAF8E /* Frameworks */,
@@ -496,7 +490,7 @@
 		DB52B9D71EC6DE280082C04F /* UTMarket */ = {
 			isa = PBXGroup;
 			children = (
-				DB7F78EA1ED30017003D3A50 /* CustomViews */,
+				DB7AB8961ED5C10400A067D0 /* DetailVC */,
 				DB7F78F81ED307B9003D3A50 /* HomeVC */,
 				DB7F78FF1ED31666003D3A50 /* DataLIstVC */,
 				014D91681ED59260002A8346 /* Gallary VC */,
@@ -570,13 +564,23 @@
 			path = Icon_img;
 			sourceTree = SOURCE_ROOT;
 		};
+		DB7AB8961ED5C10400A067D0 /* DetailVC */ = {
+			isa = PBXGroup;
+			children = (
+				DB7AB8931ED5C0A500A067D0 /* DetailVC.h */,
+				DB7AB8941ED5C0A500A067D0 /* DetailVC.m */,
+				DB43D0EF1ED5A09700C50157 /* DetailView */,
+			);
+			name = DetailVC;
+			sourceTree = "<group>";
+		};
 		DB7F78EA1ED30017003D3A50 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
-				DB43D0EF1ED5A09700C50157 /* DetailView */,
 				DB7F78EB1ED3002C003D3A50 /* HEADER */,
 			);
 			name = CustomViews;
+			path = UTMarket;
 			sourceTree = "<group>";
 		};
 		DB7F78EB1ED3002C003D3A50 /* HEADER */ = {
@@ -813,6 +817,7 @@
 				DB0B4B241EC711BB005AAF8E /* AFURLSessionManager.m in Sources */,
 				DB7F79351ED31ED9003D3A50 /* UIImageView+WebCache.m in Sources */,
 				DB7F792C1ED31ED9003D3A50 /* SDWebImageDownloader.m in Sources */,
+				DB7AB8951ED5C0A500A067D0 /* DetailVC.m in Sources */,
 				DB43D0F31ED5A35E00C50157 /* DetailVC.m in Sources */,
 				DB7F78F71ED3013B003D3A50 /* HomeVC.m in Sources */,
 				DB7F79271ED31ED9003D3A50 /* MKAnnotationView+WebCache.m in Sources */,
