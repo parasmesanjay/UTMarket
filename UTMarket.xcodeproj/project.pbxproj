@@ -50,6 +50,9 @@
 		DB0B4B551EC7271B005AAF8E /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DB0B4B541EC7271B005AAF8E /* libsqlite3.0.tbd */; };
 		DB0B4B581EC73270005AAF8E /* AccountKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB0B4B561EC73270005AAF8E /* AccountKit.framework */; };
 		DB0B4B591EC73270005AAF8E /* AccountKitStrings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DB0B4B571EC73270005AAF8E /* AccountKitStrings.bundle */; };
+		DB43D0EB1ED58DCF00C50157 /* DetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB43D0EA1ED58DCF00C50157 /* DetailView.xib */; };
+		DB43D0EE1ED5A08F00C50157 /* DetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = DB43D0ED1ED5A08F00C50157 /* DetailView.m */; };
+		DB43D0F31ED5A35E00C50157 /* DetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DB43D0F21ED5A35E00C50157 /* DetailVC.m */; };
 		DB52B9DA1EC6DE280082C04F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DB52B9D91EC6DE280082C04F /* main.m */; };
 		DB52B9DD1EC6DE290082C04F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DB52B9DC1EC6DE290082C04F /* AppDelegate.m */; };
 		DB52B9E01EC6DE290082C04F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB52B9DF1EC6DE290082C04F /* ViewController.m */; };
@@ -189,6 +192,11 @@
 		DB0B4B541EC7271B005AAF8E /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		DB0B4B561EC73270005AAF8E /* AccountKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AccountKit.framework; path = Liabrary/AccountKit.framework; sourceTree = "<group>"; };
 		DB0B4B571EC73270005AAF8E /* AccountKitStrings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AccountKitStrings.bundle; path = Liabrary/AccountKitStrings.bundle; sourceTree = "<group>"; };
+		DB43D0EA1ED58DCF00C50157 /* DetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailView.xib; sourceTree = "<group>"; };
+		DB43D0EC1ED5A08F00C50157 /* DetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailView.h; sourceTree = "<group>"; };
+		DB43D0ED1ED5A08F00C50157 /* DetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailView.m; sourceTree = "<group>"; };
+		DB43D0F11ED5A35E00C50157 /* DetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailVC.h; sourceTree = "<group>"; };
+		DB43D0F21ED5A35E00C50157 /* DetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailVC.m; sourceTree = "<group>"; };
 		DB52B9D51EC6DE280082C04F /* UTMarket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UTMarket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB52B9D91EC6DE280082C04F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DB52B9DB1EC6DE290082C04F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -448,6 +456,25 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		DB43D0EF1ED5A09700C50157 /* DetailView */ = {
+			isa = PBXGroup;
+			children = (
+				DB43D0EA1ED58DCF00C50157 /* DetailView.xib */,
+				DB43D0EC1ED5A08F00C50157 /* DetailView.h */,
+				DB43D0ED1ED5A08F00C50157 /* DetailView.m */,
+			);
+			name = DetailView;
+			sourceTree = "<group>";
+		};
+		DB43D0F01ED5A32E00C50157 /* DetailVC */ = {
+			isa = PBXGroup;
+			children = (
+				DB43D0F11ED5A35E00C50157 /* DetailVC.h */,
+				DB43D0F21ED5A35E00C50157 /* DetailVC.m */,
+			);
+			name = DetailVC;
+			sourceTree = "<group>";
+		};
 		DB52B9CC1EC6DE280082C04F = {
 			isa = PBXGroup;
 			children = (
@@ -546,6 +573,7 @@
 		DB7F78EA1ED30017003D3A50 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				DB43D0EF1ED5A09700C50157 /* DetailView */,
 				DB7F78EB1ED3002C003D3A50 /* HEADER */,
 			);
 			name = CustomViews;
@@ -729,6 +757,7 @@
 				DB52B9E31EC6DE290082C04F /* Main.storyboard in Resources */,
 				DB0B4B3F1EC71F7B005AAF8E /* GoogleSignIn.bundle in Resources */,
 				DB52BA1B1EC6E70D0082C04F /* facebook.png in Resources */,
+				DB43D0EB1ED58DCF00C50157 /* DetailView.xib in Resources */,
 				DB52BA2C1EC6E70D0082C04F /* login_backgroung 2.png in Resources */,
 				DB52BA251EC6E70D0082C04F /* home.png in Resources */,
 				DB52BA281EC6E70D0082C04F /* house.png in Resources */,
@@ -756,6 +785,7 @@
 				014D916E1ED592BD002A8346 /* UploadVC.m in Sources */,
 				DB0B4B231EC711BB005AAF8E /* AFURLResponseSerialization.m in Sources */,
 				DB0B4B271EC711BB005AAF8E /* SVIndefiniteAnimatedView.m in Sources */,
+				DB43D0EE1ED5A08F00C50157 /* DetailView.m in Sources */,
 				DB7F792D1ED31ED9003D3A50 /* SDWebImageDownloaderOperation.m in Sources */,
 				014D91711ED592F7002A8346 /* UploadTypeVC.m in Sources */,
 				DB7F792F1ED31ED9003D3A50 /* SDWebImagePrefetcher.m in Sources */,
@@ -783,6 +813,7 @@
 				DB0B4B241EC711BB005AAF8E /* AFURLSessionManager.m in Sources */,
 				DB7F79351ED31ED9003D3A50 /* UIImageView+WebCache.m in Sources */,
 				DB7F792C1ED31ED9003D3A50 /* SDWebImageDownloader.m in Sources */,
+				DB43D0F31ED5A35E00C50157 /* DetailVC.m in Sources */,
 				DB7F78F71ED3013B003D3A50 /* HomeVC.m in Sources */,
 				DB7F79271ED31ED9003D3A50 /* MKAnnotationView+WebCache.m in Sources */,
 				DB52B9DD1EC6DE290082C04F /* AppDelegate.m in Sources */,

@@ -38,7 +38,7 @@
     
     self.navigationController.interactivePopGestureRecognizer.enabled = NO;
     self.navigationController.interactivePopGestureRecognizer.delegate = self;
-    
+
 }
 
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
@@ -55,6 +55,7 @@
     
     CategoryVC *obj = [self.storyboard instantiateViewControllerWithIdentifier:@"CategoryVC"];
     obj.dic = array[sender.tag];
+    obj.tag = sender.tag;
     [self.navigationController pushViewController:obj animated:YES];
 }
 

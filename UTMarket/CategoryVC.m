@@ -72,6 +72,8 @@
 {
     DataListVC *obj = [self.storyboard instantiateViewControllerWithIdentifier:@"DataListVC"];
     obj.info = arrayCats[indexPath.row];
+    obj.tag = _tag;
+
     [self.navigationController pushViewController:obj animated:YES];
 
 }
