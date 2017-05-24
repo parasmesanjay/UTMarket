@@ -212,14 +212,12 @@
                 {
                     UIAlertController *alertController = [UIAlertController  alertControllerWithTitle:@"Failed !" message:@"Failed to Upload." preferredStyle:UIAlertControllerStyleAlert];
                     
-                    //UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"No" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action){  }];
                     UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action)
                                                {
                                                    /*uploadingView.hidden = YES;
                                                     [barProgress setProgress:0.01];
                                                     lblProgressCount.text = [NSString stringWithFormat:@"0 %@", @"%"];*/
                                                }];
-                    //[alertController addAction:cancelAction ];
                     [alertController addAction:okAction];
                     [self presentViewController:alertController animated:YES completion:nil];
                 }
