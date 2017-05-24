@@ -1,6 +1,5 @@
 //
 //  PrefixHeader.pch
-//  Vizzou'
 //
 //  Created by Ashish Kumar Sharma on 04/07/16.
 //  Copyright © 2016 Ashish Kumar Sharma. All rights reserved.
@@ -19,7 +18,11 @@
 #import "TPKeyboardAvoidingScrollView.h"
 #import "ViewHeader.h"
 #import "UIImageView+WebCache.h"
+#import "AFNetworking.h"
 
 #import "HomeVC.h"
+#import "GallaryVC.h"
+#import "UploadTypeVC.h"
+#import "UploadVC.h"
 
 #endif
