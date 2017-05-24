@@ -35,7 +35,7 @@
 #define APP_COLOR_HEADER [UIColor colorWithRed:49/255.0 green:201/255.0 blue:255/255.0 alpha:1]
 #define APP_COLOR_BLUE [UIColor colorWithRed:0/255.0 green:122/255.0 blue:232/255.0 alpha:1]
 #define TABLE_HEADER_COLOR [UIColor colorWithRed:225.0/255.0 green:225.0/255.0 blue:225.0/255.0 alpha:1]
-#define APP_COLOR_RED [UIColor colorWithRed:253/255.0 green:45/255.0 blue:41/255.0 alpha:1]
+#define APP_COLOR_Green [UIColor colorWithRed:83/255.0 green:163/255.0 blue:24/255.0 alpha:1]
 
 #define APP_COLOR_SKYCOLOR [UIColor colorWithRed:49/255.0 green:201/255.0 blue:232/255.0 alpha:1]
 
