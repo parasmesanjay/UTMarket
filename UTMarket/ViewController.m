@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "AFNetworking.h"
 
 @interface ViewController ()<GIDSignInDelegate,GIDSignInUIDelegate>
 @property(strong, nonatomic) GIDSignInButton *signInButton;
@@ -20,7 +21,7 @@
     [super viewDidLoad];
     
     HIDE_NAV_BAR
-
+    
     [self setTextFieldBorder:txtEmail];
     [self setTextFieldBorder:txtPass];
     
@@ -44,10 +45,66 @@
     [fbButton setTitle:@"Facebook" forState:UIControlStateNormal];
     fbButton.readPermissions =
     @[@"public_profile", @"email",@"user_friends"];
+    
+    fbButton.loginBehavior = FBSDKLoginBehaviorWeb;
+    
     //fbButton.frame = btnFB.frame;
     //fbButton.center = btnFB.center;
     
     fbButton.hidden = YES;
+    
+    
+//    NSString *jsonString = @"{\"email\":\"sonu.singh868@gmail.com\",\"fbid\":\"100001696238628\",\"firstname\":\"Sonu\",\"lastname\":\"Singh\"}";
+//
+//    
+//    
+//    AFJSONRequestSerializer *serializer = [AFJSONRequestSerializer serializer];
+//    
+//    AFHTTPRequestOperationManager *manager;
+//
+//    manager.requestSerializer = serializer;
+//    
+//    manager = [[AFHTTPRequestOperationManager alloc] init];
+//    
+//    manager.securityPolicy.allowInvalidCertificates = YES;
+//    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+//
+//    
+//    NSDictionary *dic = @{@"email":@"sonu.singh868@gmail.com",
+//                          @"fbid":@"100001696238628",
+//                          @"firstname":@"Sonu",
+//                          @"lastname": @"Singh"};
+//    NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://www.appone.biz/UTMarket/index.php?route=feed/rest_api/fb_login"]];
+//     NSData *postData = [jsonString dataUsingEncoding:NSASCIIStringEncoding];
+//    [request setHTTPBody:postData];
+//    [request setHTTPMethod:@"POST"];
+//    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+//    
+//    
+//   
+//    
+//    [manager HTTPRequestOperationWithRequest:request success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject)
+//     {
+//        
+//    } failure:^(AFHTTPRequestOperation * _Nonnull operation, NSError * _Nonnull error) {
+//        
+//    }];
+//    
+//    
+//    [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+/////    [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+//
+//    manager.responseSerializer = [AFJSONResponseSerializer serializerWithReadingOptions:NSJSONReadingAllowFragments];
+//    [manager.requestSerializer setValue:@"text/html" forHTTPHeaderField:@"Content-type"];
+//    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+//
+//    [manager POST:@"http://www.appone.biz/UTMarket/index.php?route=feed/rest_api/fb_login" parameters:jsonString success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+//        
+//    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+//        
+//    }];
+//    
+
 }
 
 - (IBAction)btnFBClk:(id)sender
@@ -71,9 +128,10 @@
     NSString *familyName = user.profile.familyName;
     NSString *email = user.profile.email;
     
+    [self performSegueWithIdentifier:@"goHome" sender:nil];
+    
     NSLog(@"%@ %@ %@ %@ %@ %@",userId,idToken,fullName,givenName,familyName,email);
 }
-
 
 - (void)signInWillDispatch:(GIDSignIn *)signIn error:(NSError *)error
 {
@@ -98,24 +156,27 @@ dismissViewController:(UIViewController *)viewController
 didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
               error:(NSError *)error
 {
-    NSLog(@"%@",result);
-    NSLog(@"%@",result);
-    
-    NSMutableDictionary* parameters = [NSMutableDictionary dictionary];
-    [parameters setValue:@"id,name,email" forKey:@"fields"];
-    
-    [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:parameters]
-     startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error)
-     {
-         if(!error)
+    if (!error){
+        
+        NSMutableDictionary* parameters = [NSMutableDictionary dictionary];
+        [parameters setValue:@"id,name,email" forKey:@"fields"];
+        
+        [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:parameters]
+         startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error)
          {
-             NSLog(@"fetched user:%@", result);
-         }
-         
-         FBSDKLoginManager *loginManager = [[FBSDKLoginManager alloc] init];
-         [loginManager logOut];
-     }];
-    
+             if(!error)
+             {
+                 NSLog(@"fetched user:%@", result);
+                 [self performSegueWithIdentifier:@"goHome" sender:nil];
+
+                 FBSDKLoginManager *loginManager = [[FBSDKLoginManager alloc] init];
+                 [loginManager logOut];
+
+             }
+             
+            
+         }];
+    }
 }
 
 - (void)loginButtonDidLogOut:(FBSDKLoginButton *)loginButton;
@@ -123,7 +184,7 @@ didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
     
 }
 
-// *****************************************************************
+// ******************************
 
 -(void)setTextFieldBorder:(UITextField *)textField{
     
@@ -134,7 +195,6 @@ didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
     border.borderWidth = borderWidth;
     [textField.layer addSublayer:border];
     textField.layer.masksToBounds = YES;
-    
 }
 //change the color and text value for place holder...
 
@@ -148,6 +208,13 @@ didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+}
+
+
+- (IBAction)tapLogin:(UIButton *)sender {
+    
+    [self performSegueWithIdentifier:@"goHome" sender:nil];
+
 }
 
 

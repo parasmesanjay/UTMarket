@@ -22,6 +22,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [SVProgressHUD  setDefaultMaskType:SVProgressHUDMaskTypeBlack];
+    [SVProgressHUD  setDefaultAnimationType:SVProgressHUDAnimationTypeNative];
+    [SVProgressHUD setBackgroundColor:[UIColor blackColor]];
+    
 
     [GIDSignIn sharedInstance].delegate = self;
     [GIDSignIn sharedInstance].clientID = kClientID;
@@ -33,7 +37,7 @@
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
-    return  [[FBSDKApplicationDelegate sharedInstance] application:application openURL:url sourceApplication:sourceApplication annotation:annotation] || [[GIDSignIn sharedInstance] handleURL:url
+    return  [[FBSDKApplicationDelegate sharedInstance] application:application openURL:url sourceApplication:sourceApplication annotation:annotation], [[GIDSignIn sharedInstance] handleURL:url
                                                                                                                                                                              sourceApplication:sourceApplication
                                                                                                                                                                                     annotation:annotation];
 }
@@ -59,12 +63,12 @@ didDisconnectWithUser:(GIDGoogleUser *)user
 didSignInForUser:(GIDGoogleUser *)user
      withError:(NSError *)error {
     // Perform any operations on signed in user here.
-    NSString *userId = user.userID;                  // For client-side use only!
-    NSString *idToken = user.authentication.idToken; // Safe to send to the server
-    NSString *fullName = user.profile.name;
-    NSString *givenName = user.profile.givenName;
-    NSString *familyName = user.profile.familyName;
-    NSString *email = user.profile.email;
+//    NSString *userId = user.userID;                  // For client-side use only!
+//    NSString *idToken = user.authentication.idToken; // Safe to send to the server
+//    NSString *fullName = user.profile.name;
+//    NSString *givenName = user.profile.givenName;
+//    NSString *familyName = user.profile.familyName;
+//    NSString *email = user.profile.email;
     // ...
 }
 

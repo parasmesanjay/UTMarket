@@ -11,7 +11,7 @@
 #define WIDTH ((([UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationPortrait) || ([UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationPortraitUpsideDown)) ? [[UIScreen mainScreen] bounds].size.width : [[UIScreen mainScreen] bounds].size.height)
 #define HEIGHT ((([UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationPortrait) || ([UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationPortraitUpsideDown)) ? [[UIScreen mainScreen] bounds].size.height : [[UIScreen mainScreen] bounds].size.width)
 
-#define BASE_URL @"http://www.townhouseapp.com/"
+#define BASE_URL @"http://appone.biz/UTMarket/index.php?route=feed/rest_api/"
 #define kClientID @"952299274319-2pr0ubuj01vninn64rrq475sjv6gdcd2.apps.googleusercontent.com";
 #define BASE_URL_SOURCE @"http://www.townhouseapp.com"
 

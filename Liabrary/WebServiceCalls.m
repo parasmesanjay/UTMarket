@@ -9,9 +9,6 @@
 #import "WebServiceCalls.h"
 #import "AFNetworking.h"
 
-#define BASE_URL @"http://appone.biz/wow_service/api/"
-
-
 static AFHTTPRequestOperationManager *manager;
 
 
@@ -31,7 +28,7 @@ static NSString *getuserphone;
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
 }
 
-+ (void)POST:(NSString *)url parameter:(NSDictionary *)parameter completionBlock:(WebCallBlock)block
++ (void)POST:(NSString *)url parameter:(id)parameter completionBlock:(WebCallBlock)block
 {
     if ([self isNetwork])
     {

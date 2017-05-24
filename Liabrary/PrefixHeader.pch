@@ -17,5 +17,9 @@
 #import <Foundation/Foundation.h>
 #import "SVProgressHUD.h"
 #import "TPKeyboardAvoidingScrollView.h"
+#import "ViewHeader.h"
+#import "UIImageView+WebCache.h"
+
+#import "HomeVC.h"
 
 #endif
