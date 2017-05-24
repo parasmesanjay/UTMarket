@@ -106,7 +106,7 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // coool
+    // cool
 }
 
 @end
