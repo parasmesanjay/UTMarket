@@ -161,9 +161,16 @@
 {
     DetailVC *obj = [[DetailVC alloc]init];
     obj.info = arrDetail[sender.tag];
-    obj.tag = _tag;
     [self.navigationController pushViewController:obj animated:YES];
     
+    if (_tag == 0)
+    {
+        obj.tag = _tag;
+    }
+    else
+    {
+        obj.tag = [_info[@"category_id"] integerValue];
+    }
 }
 
 
