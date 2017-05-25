@@ -133,7 +133,6 @@
     }
     else if (_tag == 68)
     {
-        view.imgProfile.hidden = YES;
         view.lblName.text = [NSString stringWithFormat:@"%@",data[@"mechanic_name"]];
         view.lblProfileName.text = view.lblDetail.text = [NSString stringWithFormat:@"%@",_info[@"mechanic_name"]];
         view.lblDetail.text = [NSString stringWithFormat:@"%@",data[@"mechanic_email"]];
@@ -141,25 +140,24 @@
         
         view.textDetail.text = [NSString stringWithFormat:@"%@",data[@"mechanic_location"]];
         
+        NSString *urlSrting = [NSString stringWithFormat:@"http://appone.biz/UTMarket/image/%@",data[@"mechanic_image"]];
+        NSURL *url = [NSURL URLWithString:[urlSrting stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+        [view.imgProfile sd_setImageWithURL:url];
         
-//        NSString *urlSrting = [NSString stringWithFormat:@"http://appone.biz/UTMarket/image/%@",_info[@"image"]];
-//        
-//        NSURL *url = [NSURL URLWithString:[urlSrting stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-//        [view.img_icon_1 sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"question"]];
-//        [view.img_icon_2 sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"question"]];
-//        [view.img_icon sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"question"]];
-//        
-//        UIImageView *image = [[UIImageView alloc]initWithFrame:view.scrollSlieder.frame];
-//        [image sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"question"]];
-//        [view.scrollSlieder addSubview:image];
+        [view.img_icon_1 sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"question"]];
+        [view.img_icon_2 sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"question"]];
+        [view.img_icon sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"question"]];
+        
+        UIImageView *image = [[UIImageView alloc]initWithFrame:view.scrollSlieder.frame];
+        [image sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"question"]];
+        [view.scrollSlieder addSubview:image];
         
         mainScroll.contentSize = CGSizeMake(WIDTH,view.frame.size.height);
-        
     }
     else if (_tag == 67)
     {
-        view.lblName.text = [NSString stringWithFormat:@"%@",data[@"seller_image"]];
-        view.lblProfileName.text = view.lblDetail.text = [NSString stringWithFormat:@"%@",_info[@"seller_image"]];
+        view.lblName.text = [NSString stringWithFormat:@"%@",data[@"seller_name"]];
+        view.lblProfileName.text = view.lblDetail.text = [NSString stringWithFormat:@"%@",_info[@"seller_name"]];
         view.lblDetail.text = [NSString stringWithFormat:@"%@",data[@"car_model"]];
         view.lblMobile.text = [NSString stringWithFormat:@"%@",data[@"price"]];
         
@@ -168,17 +166,24 @@
         
         NSString *urlSrting = [NSString stringWithFormat:@"http://appone.biz/UTMarket/image/%@",data[@"seller_image"]];
         
-////        NSURL *url = [NSURL URLWithString:[urlSrting stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-////        [view.img_icon_1 sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"question"]];
-////        [view.img_icon_2 sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"question"]];
-////        [view.img_icon sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"question"]];
-//        
-//        UIImageView *image = [[UIImageView alloc]initWithFrame:view.scrollSlieder.frame];
-//        [image sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"question"]];
-//        [view.scrollSlieder addSubview:image];
-        
-        
         NSURL *url = [NSURL URLWithString:[urlSrting stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+        [view.img_icon_1 sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"question"]];
+        [view.img_icon_2 sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"question"]];
+        [view.img_icon sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"question"]];
+        
+        UIImageView *image = [[UIImageView alloc]initWithFrame:view.scrollSlieder.frame];
+        [image sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"question"]];
+        [view.scrollSlieder addSubview:image];
+        
+        
+        for (int i=0;i<[data[@"images"] count]; i++)
+        {
+            
+        }
+        
+        
+        urlSrting = [NSString stringWithFormat:@"http://appone.biz/UTMarket/image/%@",data[@"seller_image"]];
+        url = [NSURL URLWithString:[urlSrting stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
 
         [view.imgProfile sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"question"]];
 
@@ -198,7 +203,7 @@
         mainScroll.contentSize = CGSizeMake(WIDTH,view.frame.size.height);
 
     }
-    else if (_tag == 65)
+    else if (_tag == 66)
     {
         view.lblName.text = [NSString stringWithFormat:@"%@",data[@"car_renter_name"]];
         view.lblProfileName.text = view.lblDetail.text = [NSString stringWithFormat:@"%@",_info[@"car_renter_name"]];
