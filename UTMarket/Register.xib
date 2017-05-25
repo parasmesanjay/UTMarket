@@ -125,10 +125,10 @@
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter mobile number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cSe-ZY-jmM">
                                         <rect key="frame" x="0.0" y="22" width="315" height="40"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -199,6 +199,7 @@
                         </state>
                         <connections>
                             <action selector="tapCreateAccount:" destination="0gW-5m-0Fl" eventType="touchUpInside" id="LCS-Vm-5MY"/>
+                            <action selector="tapSubmit:" destination="Xwe-cj-vd6" eventType="touchUpInside" id="ic5-Zw-MYm"/>
                         </connections>
                     </button>
                 </subviews>
@@ -208,7 +209,7 @@
                 <outlet property="btnSubmint" destination="qzn-mj-2OT" id="qBK-6g-LE6"/>
                 <outlet property="textTocken" destination="EaK-hd-0AP" id="FLi-vz-pB2"/>
             </connections>
-            <point key="canvasLocation" x="-55.5" y="964.5"/>
+            <point key="canvasLocation" x="1" y="958"/>
         </viewController>
     </objects>
     <resources>

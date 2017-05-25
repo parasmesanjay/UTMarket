@@ -7,8 +7,8 @@
 //
 
 #import "RegisterVC.h"
-
-@interface RegisterVC ()<UIGestureRecognizerDelegate>
+#import "ConfirmVC.h"
+@interface RegisterVC ()<UIGestureRecognizerDelegate,UITextFieldDelegate>
 {
     IBOutlet TPKeyboardAvoidingScrollView *mainScroll;
 
@@ -37,7 +37,7 @@
     }
     
     [mainScroll setContentSize:CGSizeMake(WIDTH,700)];
-    
+    mobile.delegate = self;
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -62,10 +62,56 @@
 
 - (IBAction)tapCreateAccount:(id)sender {
     
+    if (firstName.text.length > 0 && lastName.text.length > 0 && email.text.length > 0&& password.text.length > 0 && mobile.text.length > 0) {
+        
+        if ([WebServiceCalls isValidEmail:email.text])
+        {
+         SVHUD_START
+            [self performSelector:@selector(fireJson) withObject:nil afterDelay:0];
+        }
+        else
+            [WebServiceCalls warningAlert:@"Enter valid email first."];
+
+    }
+    else
+        [WebServiceCalls warningAlert:@"Required All Fields"];
 }
 
 - (IBAction)tapAlready:(id)sender {
     POP_BACK
+}
+
+-(void)fireJson
+{
+    NSString *jsonString = [NSString stringWithFormat:@"{\"email\":\"%@\",\"firstname\":\"%@\",\"lastname\":\"%@\",\"mobile_no\":\"%@\",\"password\":\"%@\"}",email.text,firstName.text,lastName.text,mobile.text,password.text];
+    
+    
+    [WebServiceCalls POSTJSON:@"register" parameter:jsonString completionBlock:^(id JSON, WebServiceResult result)
+     {
+      SVHUD_STOP
+         
+         @try {
+             
+             //NSLog(@"%@",JSON);
+             if ([JSON[@"success"] integerValue] == 1)
+             {
+                 [[NSUserDefaults standardUserDefaults] setObject:JSON forKey:@"user_data"];
+                 ConfirmVC *obj = [[[NSBundle mainBundle]loadNibNamed:@"Register" owner:self options:nil]objectAtIndex:1];
+                 [self.navigationController pushViewController:obj animated:YES];
+             }
+             else
+             {
+                 [WebServiceCalls warningAlert:@"Email Already Used."];
+             }
+             
+         } @catch (NSException *exception) {
+             
+         } @finally {
+             
+         }
+         
+     }];
+
 }
 
 
@@ -87,5 +133,17 @@
     NSAttributedString *str = [[NSAttributedString alloc] initWithString:textValue attributes:@{ NSForegroundColorAttributeName : [UIColor lightTextColor] }];
     
     textField.attributedPlaceholder=str;
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    
+    if (textField == mobile)
+    {
+        NSUInteger newLength = [textField.text length] + [string length] - range.length;
+        return newLength <=10;
+    }
+    else
+        return YES;
+    
 }
 @end

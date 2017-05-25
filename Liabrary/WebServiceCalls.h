@@ -30,4 +30,7 @@ typedef void(^WebCallBlock)(id JSON,WebServiceResult result);
 + (void)warningAlert:(NSString *)alertString;
 + (BOOL)isNetwork;
 
++ (BOOL)isValidEmail:(NSString *)email;
+
+
 @end

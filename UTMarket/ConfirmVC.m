@@ -30,5 +30,8 @@
     [super didReceiveMemoryWarning];
 }
 
+- (IBAction)tapSubmit:(id)sender {
+    
+}
 
 @end

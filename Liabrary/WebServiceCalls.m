@@ -197,5 +197,15 @@ static NSString *getuserphone;
     }
 }
 
+
++(BOOL)isValidEmail:(NSString *)email
+{
+    NSString *emailRegEx =
+    @"^[A-Z0-9a-z\\._%+-]+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2,4}$";
+    
+    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegEx];
+    BOOL isvalid =[emailTest evaluateWithObject:email];
+    return isvalid;
+}
 @end
 
