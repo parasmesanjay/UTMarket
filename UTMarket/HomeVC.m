@@ -19,7 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
+    HIDE_NAV_BAR
     img.image =  [img.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     
     [SVProgressHUD showWithStatus:@"Loading.."];

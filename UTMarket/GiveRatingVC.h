@@ -18,6 +18,6 @@
 
 }
 
-@property (nonatomic,strong) id info;
+@property (nonatomic,strong) NSDictionary *info;
 
 @end

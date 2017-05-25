@@ -54,58 +54,7 @@
     //fbButton.center = btnFB.center;
     
     fbButton.hidden = YES;
-    
-    
-//    NSString *jsonString = @"{\"email\":\"sonu.singh868@gmail.com\",\"fbid\":\"100001696238628\",\"firstname\":\"Sonu\",\"lastname\":\"Singh\"}";
-//
-//    
-//    
-//    AFJSONRequestSerializer *serializer = [AFJSONRequestSerializer serializer];
-//    
-//    AFHTTPRequestOperationManager *manager;
-//
-//    manager.requestSerializer = serializer;
-//    
-//    manager = [[AFHTTPRequestOperationManager alloc] init];
-//    
-//    manager.securityPolicy.allowInvalidCertificates = YES;
-//    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-//
-//    
-//    NSDictionary *dic = @{@"email":@"sonu.singh868@gmail.com",
-//                          @"fbid":@"100001696238628",
-//                          @"firstname":@"Sonu",
-//                          @"lastname": @"Singh"};
-//    NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://www.appone.biz/UTMarket/index.php?route=feed/rest_api/fb_login"]];
-//     NSData *postData = [jsonString dataUsingEncoding:NSASCIIStringEncoding];
-//    [request setHTTPBody:postData];
-//    [request setHTTPMethod:@"POST"];
-//    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-//    
-//    
-//   
-//    
-//    [manager HTTPRequestOperationWithRequest:request success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject)
-//     {
-//        
-//    } failure:^(AFHTTPRequestOperation * _Nonnull operation, NSError * _Nonnull error) {
-//        
-//    }];
-//    
-//    
-//    [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Accept"];
-/////    [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-//
-//    manager.responseSerializer = [AFJSONResponseSerializer serializerWithReadingOptions:NSJSONReadingAllowFragments];
-//    [manager.requestSerializer setValue:@"text/html" forHTTPHeaderField:@"Content-type"];
-//    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
-//
-//    [manager POST:@"http://www.appone.biz/UTMarket/index.php?route=feed/rest_api/fb_login" parameters:jsonString success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
-//        
-//    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
-//        
-//    }];
-//    
+
 
 }
 
@@ -129,6 +78,9 @@
     NSString *givenName = user.profile.givenName;
     NSString *familyName = user.profile.familyName;
     NSString *email = user.profile.email;
+    
+    [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:@"UserID"];
+    [[NSUserDefaults standardUserDefaults] setObject:fullName forKey:@"name"];
     
     
     [signIn signOut];
@@ -177,9 +129,10 @@ didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
                  FBSDKLoginManager *loginManager = [[FBSDKLoginManager alloc] init];
                  [loginManager logOut];
 
+                 [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:@"UserID"];
+                 [[NSUserDefaults standardUserDefaults] setObject:result[@"name"] forKey:@"name"];
                  
              }
-             
             
          }];
     }
@@ -254,8 +207,6 @@ didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
                  NSData *myData = [NSKeyedArchiver archivedDataWithRootObject:JSON[@"data"]];
                  [[NSUserDefaults standardUserDefaults] setObject:myData forKey:@"user_data_c"];
                
-                 [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%@",JSON[@"data"][@"customer_id"]] forKey:@"UserID"];
-                 
                  [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%@",JSON[@"data"][@"customer_id"]] forKey:@"UserID"];
                  
                  

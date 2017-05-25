@@ -17,6 +17,8 @@
 
 @property (nonatomic,strong) UINavigationController *navigationController;
 
+@property (nonatomic,strong) NSDictionary *dic;
+
 +(AppDelegate *)AppDelegate;
 @property(nonatomic, readwrite) BOOL isFull;
 
