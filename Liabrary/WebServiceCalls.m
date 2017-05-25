@@ -28,6 +28,36 @@ static NSString *getuserphone;
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
 }
 
++ (void)POSTJSON:(NSString *)url parameter:(NSString *)parameter completionBlock:(WebCallBlock)block
+{
+    @try
+    {
+        if ([WebServiceCalls isNetwork]==YES)
+        {
+            
+            NSData *postData = [parameter dataUsingEncoding:NSASCIIStringEncoding];
+            NSURL *urlStr=  [NSURL URLWithString:[[NSString stringWithFormat:@"%@%@",BASE_URL,url] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+            NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:urlStr];
+            
+            [request setHTTPBody:postData];
+            [request setHTTPMethod:@"POST"];
+            [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+            
+            NSError *error = NULL;
+            NSURLResponse *response = NULL;
+            NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error ];
+            id responce = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+            block(responce,WebServiceResultSuccess);
+        }
+    }
+    @catch (NSException *exception)
+    {
+        block(@"1",WebServiceResultFail);
+    }
+}
+
+
+
 + (void)POST:(NSString *)url parameter:(id)parameter completionBlock:(WebCallBlock)block
 {
     if ([self isNetwork])

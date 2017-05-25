@@ -23,6 +23,9 @@ typedef void(^WebCallBlock)(id JSON,WebServiceResult result);
 + (void)GET:(NSString *)url parameter:(NSDictionary *)parameter completionBlock:(WebCallBlock)block;
 + (void)POST:(NSString *)url parameter:(NSDictionary *)parameter imageData:(NSData *)imageData completionBlock:(WebCallBlock)block;
 
++ (void)POSTJSON:(NSString *)url parameter:(NSString *)parameter completionBlock:(WebCallBlock)block;
+
+
 + (void)alert:(NSString *)alertString;
 + (void)warningAlert:(NSString *)alertString;
 + (BOOL)isNetwork;
