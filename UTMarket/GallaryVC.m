@@ -17,6 +17,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    GET_HEADER_VIEW_WITH_BACK
+    
     [self setTintColor:imgLine1];
     [self setTintColor:imgLine1];
     
