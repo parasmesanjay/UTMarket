@@ -35,6 +35,7 @@
     
     if (_tag == 0)
     {
+        [AppDelegate AppDelegate].dic = _info;
         [self showView:_info];
     }
     else
@@ -695,7 +696,9 @@
 -(void)tapGiveRating:(UIButton *)sender
 {
     GiveRatingVC *obj = [[[NSBundle mainBundle]loadNibNamed:@"ViewRating" owner:self options:nil]objectAtIndex:0];
-    obj.info = dic;
+    [AppDelegate AppDelegate].dic = dic;
+    
+    
     [self.navigationController pushViewController:obj animated:YES];    
 }
 
