@@ -17,6 +17,8 @@
     NSTimer *timer;
     
     DetailView *viewDetail;
+    
+    NSDictionary *dic;
 }
 @end
 
@@ -81,9 +83,10 @@
             
             @try {
                 SVHUD_STOP
-                NSLog(@"%@",JSON);
-                NSLog(@"%@",JSON);
+//                NSLog(@"%@",JSON);
+//                NSLog(@"%@",JSON);
                 
+                dic = JSON[@"data"];
                 [self showView:JSON[@"data"]];
                 
             } @catch (NSException *exception) {
@@ -692,6 +695,7 @@
 -(void)tapGiveRating:(UIButton *)sender
 {
     GiveRatingVC *obj = [[[NSBundle mainBundle]loadNibNamed:@"ViewRating" owner:self options:nil]objectAtIndex:0];
+    obj.info = dic;
     [self.navigationController pushViewController:obj animated:YES];    
 }
 

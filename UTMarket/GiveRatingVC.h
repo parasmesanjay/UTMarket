@@ -17,4 +17,7 @@
     IBOutlet UIButton *btnSubmit;
 
 }
+
+@property (nonatomic,strong) id info;
+
 @end

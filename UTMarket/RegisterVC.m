@@ -96,6 +96,8 @@
              //NSLog(@"%@",JSON);
              if ([JSON[@"success"] integerValue] == 1)
              {
+                  [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%@ %@",firstName.text,lastName.text] forKey:@"name"];
+                 
                  [[NSUserDefaults standardUserDefaults] setObject:JSON forKey:@"user_data"];
                  [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%@",JSON[@"user_id"]] forKey:@"UserID"];
                  

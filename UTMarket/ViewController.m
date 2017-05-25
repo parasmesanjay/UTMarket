@@ -254,8 +254,13 @@ didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
                  NSData *myData = [NSKeyedArchiver archivedDataWithRootObject:JSON[@"data"]];
                  [[NSUserDefaults standardUserDefaults] setObject:myData forKey:@"user_data_c"];
                
-                 [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%@",JSON[@"user_id"]] forKey:@"UserID"];
+                 [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%@",JSON[@"data"][@"customer_id"]] forKey:@"UserID"];
                  
+                 [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%@",JSON[@"data"][@"customer_id"]] forKey:@"UserID"];
+                 
+                 
+                  [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%@ %@",JSON[@"data"][@"firstname"],JSON[@"data"][@"lastname"]] forKey:@"name"];
+
                  [self performSegueWithIdentifier:@"goHome" sender:nil];
 
              }
