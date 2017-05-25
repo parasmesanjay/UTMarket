@@ -19,6 +19,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    HIDE_NAV_BAR
+    STATUS_BAR_WHITE
     
     img.image =  [img.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     

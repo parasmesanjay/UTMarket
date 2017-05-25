@@ -10,12 +10,14 @@
 
 @implementation MenuView
 
-@synthesize imgProfile;
+@synthesize imgProfile, lblName;
 
 - (void)drawRect:(CGRect)rect
 {
     imgProfile.layer.cornerRadius = 50;
     imgProfile.layer.masksToBounds = YES;
+    
+    lblName.text = User_name;
     
     [UIView animateWithDuration:0.2 animations:^{
         self.frame = CGRectMake(0, 20, WIDTH, HEIGHT);

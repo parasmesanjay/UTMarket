@@ -11,6 +11,7 @@
 @interface MenuView : UIView
 
 @property (strong, nonatomic) IBOutlet UIImageView *imgProfile;
+@property (strong, nonatomic) IBOutlet UILabel *lblName;
 
 @property(nonatomic,strong)UIViewController *selfBack;
 @property(nonatomic,strong)UIView *drewerView;

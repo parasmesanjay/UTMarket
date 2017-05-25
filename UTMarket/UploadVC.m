@@ -26,7 +26,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    GET_HEADER_VIEW_WITH_BACK
+    GET_HEADER_VIEW
     
     select_File = 0;
     
