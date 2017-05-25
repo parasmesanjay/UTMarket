@@ -73,16 +73,18 @@
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    UICollectionViewCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"collViewImageCell" forIndexPath:indexPath];
+    UICollectionViewCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"collViewVideoCell" forIndexPath:indexPath];
     
     UIImageView *imgView = [cell viewWithTag:1];
     
-    NSString *str = [NSString stringWithFormat:@"http://appone.biz/UTMarket/image/%@",arrVideo[indexPath.row][@"image"]];
+    imgView.image = [UIImage imageNamed:@"play.png"];
+    
+    /*NSString *str = [NSString stringWithFormat:@"http://appone.biz/UTMarket/%@",arrVideo[indexPath.row][@"video"]];
     str = [str stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
     NSURL *url = [NSURL URLWithString:str];
     
-    [imgView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"question.png"]];
+    [imgView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"question.png"]];*/
     
     return cell;
 }

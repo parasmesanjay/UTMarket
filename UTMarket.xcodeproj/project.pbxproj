@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0148146A1ED6BE9B005C1C06 /* ImageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 014814691ED6BE9B005C1C06 /* ImageVC.m */; };
 		0148146D1ED6BEAF005C1C06 /* VideoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0148146C1ED6BEAF005C1C06 /* VideoVC.m */; };
+		0148146F1ED6F2AF005C1C06 /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = 0148146E1ED6F2AF005C1C06 /* play.png */; };
 		014D91661ED58D82002A8346 /* plus_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 014D91641ED58D82002A8346 /* plus_white.png */; };
 		014D91671ED58D82002A8346 /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 014D91651ED58D82002A8346 /* plus.png */; };
 		014D916B1ED592A5002A8346 /* GallaryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 014D916A1ED592A5002A8346 /* GallaryVC.m */; };
@@ -137,6 +138,7 @@
 		014814691ED6BE9B005C1C06 /* ImageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageVC.m; sourceTree = "<group>"; };
 		0148146B1ED6BEAF005C1C06 /* VideoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoVC.h; sourceTree = "<group>"; };
 		0148146C1ED6BEAF005C1C06 /* VideoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoVC.m; sourceTree = "<group>"; };
+		0148146E1ED6F2AF005C1C06 /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
 		014D91641ED58D82002A8346 /* plus_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus_white.png; sourceTree = "<group>"; };
 		014D91651ED58D82002A8346 /* plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus.png; sourceTree = "<group>"; };
 		014D91691ED592A5002A8346 /* GallaryVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GallaryVC.h; sourceTree = "<group>"; };
@@ -583,6 +585,7 @@
 				DB52BA081EC6E70D0082C04F /* login_backgroung.png */,
 				DB52BA091EC6E70D0082C04F /* logo.png */,
 				DB52BA0A1EC6E70D0082C04F /* plane.png */,
+				0148146E1ED6F2AF005C1C06 /* play.png */,
 				014D91641ED58D82002A8346 /* plus_white.png */,
 				014D91651ED58D82002A8346 /* plus.png */,
 				DB52BA0B1EC6E70D0082C04F /* profileimage.png */,
@@ -828,6 +831,7 @@
 				DB52BA241EC6E70D0082C04F /* help.png in Resources */,
 				DB0B4B461EC723E0005AAF8E /* GoogleService-Info.plist in Resources */,
 				DB52BA361EC6E70D0082C04F /* sweethome.jpg in Resources */,
+				0148146F1ED6F2AF005C1C06 /* play.png in Resources */,
 				DB52BA2A1EC6E70D0082C04F /* line.png in Resources */,
 				DB52BA1F1EC6E70D0082C04F /* filter.png in Resources */,
 				DB54A0311ED6DE2A00409D6A /* ViewRating.xib in Resources */,
