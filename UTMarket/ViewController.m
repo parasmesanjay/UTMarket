@@ -201,7 +201,7 @@ didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
 
 -(void)placholderTextColorChange:(NSString *)textValue :(UITextField *)textField
 {
-    NSAttributedString *str = [[NSAttributedString alloc] initWithString:textValue attributes:@{ NSForegroundColorAttributeName : [UIColor whiteColor] }];
+    NSAttributedString *str = [[NSAttributedString alloc] initWithString:textValue attributes:@{ NSForegroundColorAttributeName : [UIColor lightGrayColor] }];
     
     textField.attributedPlaceholder=str;
 }
