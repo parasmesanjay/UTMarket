@@ -21,7 +21,7 @@
     GET_HEADER_VIEW_WITH_BACK
     
     [self setTintColor:imgLine1];
-    [self setTintColor:imgLine1];
+    [self setTintColor:imgLine2];
     
     btnImage.layer.cornerRadius = btnVideo.layer.cornerRadius = 5;
     btnImage.layer.masksToBounds = btnVideo.layer.masksToBounds = YES;
