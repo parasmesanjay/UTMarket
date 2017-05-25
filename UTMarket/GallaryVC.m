@@ -20,7 +20,7 @@
     GET_HEADER_VIEW_WITH_BACK
     
     [self setTintColor:imgLine1];
-    [self setTintColor:imgLine1];
+    [self setTintColor:imgLine2];
     
     btnPhoto.layer.cornerRadius = btnVideo.layer.cornerRadius = btnUploadFile.layer.cornerRadius = 5;
     btnPhoto.layer.masksToBounds = btnVideo.layer.masksToBounds = btnUploadFile.layer.masksToBounds = YES;
