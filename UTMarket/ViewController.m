@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "AFNetworking.h"
+#import "RegisterVC.h"
 
 @interface ViewController ()<GIDSignInDelegate,GIDSignInUIDelegate>
 @property(strong, nonatomic) GIDSignInButton *signInButton;
@@ -21,6 +22,7 @@
     [super viewDidLoad];
     
     HIDE_NAV_BAR
+    STATUS_BAR_WHITE
     
     [self setTextFieldBorder:txtEmail];
     [self setTextFieldBorder:txtPass];
@@ -189,9 +191,9 @@ didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
 -(void)setTextFieldBorder:(UITextField *)textField{
     
     CALayer *border = [CALayer layer];
-    CGFloat borderWidth = 2;
+    CGFloat borderWidth = 1;
     border.borderColor = [UIColor whiteColor].CGColor;
-    border.frame = CGRectMake(0, textField.frame.size.height - borderWidth, textField.frame.size.width, 2);
+    border.frame = CGRectMake(0, textField.frame.size.height - borderWidth, textField.frame.size.width, 1);
     border.borderWidth = borderWidth;
     [textField.layer addSublayer:border];
     textField.layer.masksToBounds = YES;
@@ -201,7 +203,7 @@ didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
 
 -(void)placholderTextColorChange:(NSString *)textValue :(UITextField *)textField
 {
-    NSAttributedString *str = [[NSAttributedString alloc] initWithString:textValue attributes:@{ NSForegroundColorAttributeName : [UIColor lightGrayColor] }];
+    NSAttributedString *str = [[NSAttributedString alloc] initWithString:textValue attributes:@{ NSForegroundColorAttributeName : [UIColor lightTextColor] }];
     
     textField.attributedPlaceholder=str;
 }
@@ -217,5 +219,10 @@ didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
     [self performSegueWithIdentifier:@"goHome" sender:nil];
 }
 
+- (IBAction)tapSignUp:(id)sender {
+    
+    RegisterVC *obj = [[[NSBundle mainBundle]loadNibNamed:@"Register" owner:self options:nil]objectAtIndex:0];
+    [self.navigationController pushViewController:obj animated:YES];
+}
 
 @end
