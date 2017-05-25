@@ -29,6 +29,7 @@
     [super viewDidLoad];
     
     GET_HEADER_VIEW_WITH_BACK
+    
     header.lblTitle.text = @"Item Details";
     
     self.view.backgroundColor = WHITE_COLOR;
