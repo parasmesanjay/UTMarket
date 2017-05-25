@@ -32,6 +32,18 @@
     
     [[FBSDKApplicationDelegate sharedInstance] application:application didFinishLaunchingWithOptions:launchOptions];
     
+    if (UserID != NULL)
+    {
+        UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        HomeVC *obj = [storybord instantiateViewControllerWithIdentifier:@"HomeVC"];
+        self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+        
+        [AppDelegate AppDelegate].navigationController=[[UINavigationController alloc] initWithRootViewController:obj];
+        self.window.rootViewController = [AppDelegate AppDelegate].navigationController;
+        [self.window makeKeyAndVisible];
+        return YES;
+    }
+    
     return YES;
 }
 
