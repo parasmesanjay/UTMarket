@@ -19,7 +19,7 @@
 #define User_name [[NSUserDefaults standardUserDefaults]objectForKey:@"name"]
 #define User_idendtity [[NSUserDefaults standardUserDefaults]objectForKey:@"identity"]
 
-#define User_UserName [[NSUserDefaults standardUserDefaults]objectForKey:@"username"]
+#define User_UserName [[NSUserDefaults standardUserDefaults]objectForKey:@"name"]
 #define is_Poster [[NSUserDefaults standardUserDefaults]boolForKey:@"worker"] == NO
 #define is_Worker [[NSUserDefaults standardUserDefaults]boolForKey:@"worker"] == YES
 
