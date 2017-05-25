@@ -103,7 +103,8 @@
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UploadTypeVC *obj = [storybord instantiateViewControllerWithIdentifier:@"UploadTypeVC"];
+    ImageViewVC *obj = [storybord instantiateViewControllerWithIdentifier:@"ImageViewVC"];
+    obj.Url = arrImage[indexPath.row][@"image"];
     [self.navigationController pushViewController:obj animated:YES];
 }
 
