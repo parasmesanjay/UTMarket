@@ -27,7 +27,8 @@
     // Do any additional setup after loading the view.
     
     GET_HEADER_VIEW
-    
+    header.lblTitle.text = @"Uploads";
+
     select_File = 0;
     
     btnUpload.layer.cornerRadius = 5;

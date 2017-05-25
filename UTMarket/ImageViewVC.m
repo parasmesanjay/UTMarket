@@ -19,6 +19,8 @@
     [super viewDidLoad];
     
     GET_HEADER_VIEW_WITH_BACK
+    header.lblTitle.text = @"Photo";
+
     
     NSString *str = [NSString stringWithFormat:@"http://appone.biz/UTMarket/image/%@",_Url];
     str = [str stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];

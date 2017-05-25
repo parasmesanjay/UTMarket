@@ -60,36 +60,36 @@
 
 -(void)fireJson
 {
-    NSString *jsonString = [NSString stringWithFormat:@"{\"name\":\"%@\",\"text\":\"%@\",\"rating\":\"%@\",\"category_id\":\"%@\",\"sub_category_id\":\"%@\",\"user_id\":\"%@\",\"product_id\":\"%@\"}",UserID,textFeedback.text];
-    
-    [WebServiceCalls POSTJSON:@"email_verification" parameter:jsonString completionBlock:^(id JSON, WebServiceResult result)
-     {
-         SVHUD_STOP
-         
-         @try {
-             
-             if ([JSON[@"success"] integerValue] == 1)
-             {
-                 NSData *myData = [NSKeyedArchiver archivedDataWithRootObject:JSON[@"data"]];
-                 [[NSUserDefaults standardUserDefaults] setObject:myData forKey:@"user_data_c"];
-                 
-                 UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-                 UIViewController *con = [storybord instantiateViewControllerWithIdentifier:@"HomeVC"];
-                 [self.navigationController pushViewController:con animated:YES];
-                 
-             }
-             else
-             {
-                 [WebServiceCalls warningAlert:@"Email Already Used."];
-             }
-             
-         } @catch (NSException *exception) {
-             
-         } @finally {
-             SVHUD_STOP
-         }
-         
-     }];
+//    NSString *jsonString = [NSString stringWithFormat:@"{\"name\":\"%@\",\"text\":\"%@\",\"rating\":\"%@\",\"category_id\":\"%@\",\"sub_category_id\":\"%@\",\"user_id\":\"%@\",\"product_id\":\"%@\"}",UserID,textFeedback.text];
+//    
+//    [WebServiceCalls POSTJSON:@"email_verification" parameter:jsonString completionBlock:^(id JSON, WebServiceResult result)
+//     {
+//         SVHUD_STOP
+//         
+//         @try {
+//             
+//             if ([JSON[@"success"] integerValue] == 1)
+//             {
+//                 NSData *myData = [NSKeyedArchiver archivedDataWithRootObject:JSON[@"data"]];
+//                 [[NSUserDefaults standardUserDefaults] setObject:myData forKey:@"user_data_c"];
+//                 
+//                 UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//                 UIViewController *con = [storybord instantiateViewControllerWithIdentifier:@"HomeVC"];
+//                 [self.navigationController pushViewController:con animated:YES];
+//                 
+//             }
+//             else
+//             {
+//                 [WebServiceCalls warningAlert:@"Email Already Used."];
+//             }
+//             
+//         } @catch (NSException *exception) {
+//             
+//         } @finally {
+//             SVHUD_STOP
+//         }
+//         
+//     }];
 }
 
 

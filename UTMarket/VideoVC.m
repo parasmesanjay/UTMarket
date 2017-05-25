@@ -22,7 +22,8 @@
     [super viewDidLoad];
     
     GET_HEADER_VIEW_WITH_BACK
-    
+    header.lblTitle.text = @"Videos";
+
     [self imageHud];
 }
 

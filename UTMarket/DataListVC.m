@@ -23,7 +23,7 @@
     [super viewDidLoad];
     
     GET_HEADER_VIEW_WITH_BACK
-    header.lblTitle.text = @"Title";
+    //header.lblTitle.text = @"Title";
     
     
     [SVProgressHUD showWithStatus:@"Loading.."];
@@ -56,6 +56,7 @@
     else if ([_info[@"category_id"] integerValue] == 70)
     {
         urlString = @"tourism";
+        
     }
     else
     {

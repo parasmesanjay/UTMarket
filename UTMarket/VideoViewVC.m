@@ -28,6 +28,7 @@
     [super viewDidLoad];
     
     GET_HEADER_VIEW_WITH_BACK
+    header.lblTitle.text = @"Video";
 
     NSString *str = [NSString stringWithFormat:@"http://appone.biz/UTMarket/%@",Url];
     

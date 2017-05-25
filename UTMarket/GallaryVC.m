@@ -18,6 +18,7 @@
     [super viewDidLoad];
     
     GET_HEADER_VIEW
+    header.lblTitle.text = @"Gallery";
     
     [self setTintColor:imgLine1];
     [self setTintColor:imgLine2];
