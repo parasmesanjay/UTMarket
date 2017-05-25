@@ -100,6 +100,12 @@
     return cell;
 }
 
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UploadTypeVC *obj = [storybord instantiateViewControllerWithIdentifier:@"UploadTypeVC"];
+    [self.navigationController pushViewController:obj animated:YES];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
