@@ -9,5 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface ImageViewVC : UIViewController
+{
+    
+    IBOutlet UIScrollView *scrlView;
+    IBOutlet UIImageView *ImgView;
+    
+}
 
 @end
