@@ -89,6 +89,14 @@
     return cell;
 }
 
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    VideoViewVC *obj = [storybord instantiateViewControllerWithIdentifier:@"VideoViewVC"];
+    obj.Url = arrVideo[indexPath.row][@"video"];
+    [self.navigationController pushViewController:obj animated:YES];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

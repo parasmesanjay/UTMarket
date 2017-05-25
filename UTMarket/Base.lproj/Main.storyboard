@@ -295,6 +295,30 @@
             </objects>
             <point key="canvasLocation" x="634" y="136"/>
         </scene>
+        <!--Video ViewVC-->
+        <scene sceneID="ygP-wv-Jgv">
+            <objects>
+                <viewController storyboardIdentifier="VideoViewVC" id="YjG-K4-6Au" customClass="VideoViewVC" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="344-eu-9V5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" misplaced="YES" id="Yv5-WM-SIa">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="mainView" destination="Yv5-WM-SIa" id="ZX4-Nq-WgV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Odu-4t-l8k" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-333" y="1714"/>
+        </scene>
         <!--VideoVC-->
         <scene sceneID="ZXd-Xd-qTP">
             <objects>
@@ -358,7 +382,7 @@
         <!--Image ViewVC-->
         <scene sceneID="XRG-iX-pnI">
             <objects>
-                <viewController id="QPA-89-GSb" customClass="ImageViewVC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ImageViewVC" id="QPA-89-GSb" customClass="ImageViewVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3dx-he-rHd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

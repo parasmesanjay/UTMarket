@@ -1,5 +1,5 @@
 //
-//  ImageViewVC.h
+//  VideoViewVC.h
 //  UTMarket
 //
 //  Created by Ashish Kumar Sharma on 25/05/17.
@@ -8,11 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ImageViewVC : UIViewController
+@interface VideoViewVC : UIViewController
 {
     
-    IBOutlet UIScrollView *scrlView;
-    IBOutlet UIImageView *ImgView;
+    IBOutlet UIView *mainView;
     
 }
 

@@ -24,5 +24,9 @@
 #import "GallaryVC.h"
 #import "UploadTypeVC.h"
 #import "UploadVC.h"
+#import "ImageVC.h"
+#import "ImageViewVC.h"
+#import "VideoVC.h"
+#import "VideoViewVC.h"
 
 #endif

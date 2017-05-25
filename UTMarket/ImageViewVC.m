@@ -17,6 +17,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    GET_HEADER_VIEW_WITH_BACK
+    
+    NSString *str = [NSString stringWithFormat:@"http://appone.biz/UTMarket/image/%@",_Url];
+    str = [str stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+    NSURL *url = [NSURL URLWithString:str];
+
+    
+    [ImgView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"question.png"]];
+
 }
 
 - (void)didReceiveMemoryWarning {
