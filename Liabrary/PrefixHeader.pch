@@ -17,6 +17,7 @@
 #import "SVProgressHUD.h"
 #import "TPKeyboardAvoidingScrollView.h"
 #import "ViewHeader.h"
+#import "MenuView.h"
 #import "UIImageView+WebCache.h"
 #import "AFNetworking.h"
 
@@ -28,5 +29,7 @@
 #import "ImageViewVC.h"
 #import "VideoVC.h"
 #import "VideoViewVC.h"
+
+#import "ViewController.h"
 
 #endif

@@ -9,11 +9,15 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewHeader : UIView
+
 @property (strong,nonatomic)IBOutlet UIView *viewBack;
 @property (strong,nonatomic)IBOutlet UILabel *lblTitle;
 @property (nonatomic,strong)NSString *titleString;
 @property (nonatomic,strong)UIViewController *selfBack;
 @property (strong, nonatomic) IBOutlet UIView *ViewMenu;
 @property (strong, nonatomic) IBOutlet UIButton *btnBack;
+
+@property(nonatomic,readwrite) BOOL isBack;
+@property(nonatomic,strong)UIView *drewerView;
 
 @end
