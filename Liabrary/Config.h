@@ -15,7 +15,7 @@
 #define kClientID @"952299274319-2pr0ubuj01vninn64rrq475sjv6gdcd2.apps.googleusercontent.com";
 #define BASE_URL_SOURCE @"http://www.townhouseapp.com"
 
-#define SPUserID [[NSUserDefaults standardUserDefaults]objectForKey:@"SPUserNameID"]
+#define UserID [[NSUserDefaults standardUserDefaults]objectForKey:@"UserID"]
 #define User_name [[NSUserDefaults standardUserDefaults]objectForKey:@"name"]
 #define User_idendtity [[NSUserDefaults standardUserDefaults]objectForKey:@"identity"]
 
@@ -63,13 +63,9 @@
 
 #define STATUS_BAR UIView *status = [[UIView alloc]initWithFrame:CGRectMake(0, 0, WIDTH, 20)]; status.backgroundColor = STATUS_COLOR; [self.view addSubview:status];
 
-#define GET_HEADER_VIEW  ViewHeader *header = [[[NSBundle mainBundle] loadNibNamed:@"ViewHeader" owner:self options:nil] objectAtIndex:0]; header.selfBack = self;[self.view addSubview:header]; header.frame = CGRectMake(0, 0, WIDTH, 64); header.viewBack.hidden = YES;
+#define GET_HEADER_VIEW  ViewHeader *header = [[[NSBundle mainBundle] loadNibNamed:@"ViewHeader" owner:self options:nil] objectAtIndex:0]; header.selfBack = self;[self.view addSubview:header]; header.frame = CGRectMake(0, 0, WIDTH, 64); header.viewBack.hidden = YES; header.ViewMenu.hidden = NO;
 
 #define GET_HEADER_VIEW_WITH_BACK ViewHeader *header = [[[NSBundle mainBundle] loadNibNamed:@"ViewHeader" owner:self options:nil] objectAtIndex:0]; header.selfBack = self;[self.view addSubview:header]; header.frame = CGRectMake(0, 0, WIDTH, 64);
-
-#define GET_TIP_VIEW TipView *tipView = [[[NSBundle mainBundle] loadNibNamed:@"ViewOther" owner:self options:nil] objectAtIndex:0]; tipView.selfBack = self;[self.view addSubview:tipView]; tipView.frame = CGRectMake(0,HEIGHT-60, WIDTH, 60);
-
-#define GET_HEADER_VIEW_CART HeaderViewCart *header = [[[NSBundle mainBundle] loadNibNamed:@"HeaderView" owner:self options:nil] objectAtIndex:2]; header.selfBack = self;[self.view addSubview:header]; header.frame = CGRectMake(0, 0, WIDTH, 64);
 
 #define SET_CORNER layer.cornerRadius = 5;
 

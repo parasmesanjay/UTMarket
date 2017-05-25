@@ -66,7 +66,8 @@
         
         if ([WebServiceCalls isValidEmail:email.text])
         {
-         SVHUD_START
+            HIDE_KEY
+            SVHUD_START
             [self performSelector:@selector(fireJson) withObject:nil afterDelay:0];
         }
         else
@@ -96,6 +97,8 @@
              if ([JSON[@"success"] integerValue] == 1)
              {
                  [[NSUserDefaults standardUserDefaults] setObject:JSON forKey:@"user_data"];
+                 [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%@",JSON[@"user_id"]] forKey:@"UserID"];
+                 
                  ConfirmVC *obj = [[[NSBundle mainBundle]loadNibNamed:@"Register" owner:self options:nil]objectAtIndex:1];
                  [self.navigationController pushViewController:obj animated:YES];
              }

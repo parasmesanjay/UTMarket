@@ -36,6 +36,9 @@
                                 <state key="normal" title="Submit">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="tapSubmit:" destination="W8U-Lc-1vh" eventType="touchUpInside" id="U84-GI-Dri"/>
+                                </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Your feedback" textAlignment="natural" id="ICH-cA-GRg">
                                 <rect key="frame" x="44" y="208" width="286" height="213"/>
@@ -57,8 +60,9 @@
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             </view>
             <connections>
+                <outlet property="btnSubmit" destination="Ppw-7k-CJg" id="0Fw-Or-Zav"/>
                 <outlet property="rating" destination="aUL-7N-KgZ" id="9wH-7R-DbA"/>
-                <outlet property="textFeedback" destination="ICH-cA-GRg" id="z19-Hw-B8z"/>
+                <outlet property="textFeedback" destination="ICH-cA-GRg" id="Gqd-8P-u7U"/>
             </connections>
             <point key="canvasLocation" x="174.5" y="831.5"/>
         </viewController>
@@ -85,7 +89,7 @@
             <rect key="frame" x="0.0" y="0.0" width="378" height="70"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Wh1-Zw-m55" id="aKb-tK-J1h">
-                <rect key="frame" x="0.0" y="0.0" width="378" height="69.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="378" height="69"/>
                 <autoresizingMask key="autoresizingMask"/>
             </tableViewCellContentView>
             <point key="canvasLocation" x="173" y="2054"/>

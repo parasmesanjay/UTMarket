@@ -130,6 +130,9 @@
     NSString *familyName = user.profile.familyName;
     NSString *email = user.profile.email;
     
+    
+    [signIn signOut];
+    
     [self performSegueWithIdentifier:@"goHome" sender:nil];
     
     NSLog(@"%@ %@ %@ %@ %@ %@",userId,idToken,fullName,givenName,familyName,email);
@@ -174,6 +177,7 @@ didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
                  FBSDKLoginManager *loginManager = [[FBSDKLoginManager alloc] init];
                  [loginManager logOut];
 
+                 
              }
              
             
@@ -216,8 +220,60 @@ didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
 
 - (IBAction)tapLogin:(UIButton *)sender
 {
-    [self performSegueWithIdentifier:@"goHome" sender:nil];
+    
+    if (txtEmail.text.length > 0 && txtPass.text.length > 0 )
+    {
+        
+        if ([WebServiceCalls isValidEmail:txtEmail.text])
+        {
+            HIDE_KEY
+            SVHUD_START
+            [self performSelector:@selector(fireJson) withObject:nil afterDelay:0];
+        }
+        else
+            [WebServiceCalls warningAlert:@"Enter valid email first."];
+        
+    }
+    else
+        [WebServiceCalls warningAlert:@"Required All Fields"];
 }
+
+-(void)fireJson
+{
+    NSString *jsonString = [NSString stringWithFormat:@"{\"email\":\"%@\",\"password\":\"%@\"}",txtEmail.text,txtPass.text];
+    
+    [WebServiceCalls POSTJSON:@"login" parameter:jsonString completionBlock:^(id JSON, WebServiceResult result)
+     {
+         SVHUD_STOP
+         
+         @try {
+             
+             //NSLog(@"%@",JSON);
+             if ([JSON[@"success"] integerValue] == 1)
+             {
+                 NSData *myData = [NSKeyedArchiver archivedDataWithRootObject:JSON[@"data"]];
+                 [[NSUserDefaults standardUserDefaults] setObject:myData forKey:@"user_data_c"];
+               
+                 [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%@",JSON[@"user_id"]] forKey:@"UserID"];
+                 
+                 [self performSegueWithIdentifier:@"goHome" sender:nil];
+
+             }
+             else
+             {
+                 [WebServiceCalls warningAlert:@"Email or password incorrect."];
+             }
+             
+         } @catch (NSException *exception) {
+             
+         } @finally {
+             
+         }
+         
+     }];
+    
+}
+    //[self performSegueWithIdentifier:@"goHome" sender:nil];
 
 - (IBAction)tapSignUp:(id)sender {
     

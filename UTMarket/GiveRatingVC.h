@@ -13,5 +13,8 @@
 
     IBOutlet UITextView *textFeedback;
     IBOutlet StarRatingControl *rating;
+    
+    IBOutlet UIButton *btnSubmit;
+
 }
 @end
