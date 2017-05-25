@@ -29,7 +29,7 @@
 
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;
 
-@property (strong, nonatomic) IBOutlet UILabel *btnGiveReview;
+@property (strong, nonatomic) IBOutlet UIButton *btnGiveReview;
 
 @property (strong, nonatomic) IBOutlet UIButton *btnSeeAllReviews;
 

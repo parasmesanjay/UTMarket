@@ -13,14 +13,16 @@
 {
 
 }
-- (IBAction)tapBack:(id)sender {
+
+- (IBAction)tapBack:(id)sender
+{
     [self.selfBack.navigationController popViewControllerAnimated:YES];
 }
+
 - (IBAction)tapSideMenu:(id)sender {
     
-//    DrewerView *view = [[[NSBundle mainBundle]loadNibNamed:@"DrewerView" owner:self options:nil]objectAtIndex:0];
-//    view.selfBack = self.selfBack;
-//    [self.selfBack.view addSubview:view];
+    
+    
 }
 
 @end

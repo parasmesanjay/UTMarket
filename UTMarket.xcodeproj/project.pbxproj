@@ -92,6 +92,12 @@
 		DB52BA371EC6E70D0082C04F /* tv.png in Resources */ = {isa = PBXBuildFile; fileRef = DB52BA121EC6E70D0082C04F /* tv.png */; };
 		DB52BA381EC6E70D0082C04F /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = DB52BA131EC6E70D0082C04F /* user.png */; };
 		DB52BA391EC6E70D0082C04F /* vehicle_image.png in Resources */ = {isa = PBXBuildFile; fileRef = DB52BA141EC6E70D0082C04F /* vehicle_image.png */; };
+		DB54A02B1ED6DC5800409D6A /* star1.png in Resources */ = {isa = PBXBuildFile; fileRef = DB54A0271ED6DC5800409D6A /* star1.png */; };
+		DB54A02C1ED6DC5800409D6A /* star_fill.png in Resources */ = {isa = PBXBuildFile; fileRef = DB54A0281ED6DC5800409D6A /* star_fill.png */; };
+		DB54A02D1ED6DC5800409D6A /* StarRatingControl.m in Sources */ = {isa = PBXBuildFile; fileRef = DB54A02A1ED6DC5800409D6A /* StarRatingControl.m */; };
+		DB54A0311ED6DE2A00409D6A /* ViewRating.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB54A0301ED6DE2A00409D6A /* ViewRating.xib */; };
+		DB54A0341ED6DF4D00409D6A /* GiveRatingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DB54A0331ED6DF4D00409D6A /* GiveRatingVC.m */; };
+		DB54A0371ED6E9CF00409D6A /* RatingListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DB54A0361ED6E9CF00409D6A /* RatingListVC.m */; };
 		DB5E31411ECED05200A44445 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB5E31401ECED05200A44445 /* MapKit.framework */; };
 		DB7F78EF1ED3002C003D3A50 /* ViewHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = DB7F78ED1ED3002C003D3A50 /* ViewHeader.m */; };
 		DB7F78F01ED3002C003D3A50 /* ViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB7F78EE1ED3002C003D3A50 /* ViewHeader.xib */; };
@@ -238,6 +244,15 @@
 		DB52BA121EC6E70D0082C04F /* tv.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tv.png; sourceTree = "<group>"; };
 		DB52BA131EC6E70D0082C04F /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
 		DB52BA141EC6E70D0082C04F /* vehicle_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vehicle_image.png; sourceTree = "<group>"; };
+		DB54A0271ED6DC5800409D6A /* star1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star1.png; sourceTree = "<group>"; };
+		DB54A0281ED6DC5800409D6A /* star_fill.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star_fill.png; sourceTree = "<group>"; };
+		DB54A0291ED6DC5800409D6A /* StarRatingControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StarRatingControl.h; sourceTree = "<group>"; };
+		DB54A02A1ED6DC5800409D6A /* StarRatingControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StarRatingControl.m; sourceTree = "<group>"; };
+		DB54A0301ED6DE2A00409D6A /* ViewRating.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewRating.xib; sourceTree = "<group>"; };
+		DB54A0321ED6DF4D00409D6A /* GiveRatingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GiveRatingVC.h; sourceTree = "<group>"; };
+		DB54A0331ED6DF4D00409D6A /* GiveRatingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GiveRatingVC.m; sourceTree = "<group>"; };
+		DB54A0351ED6E9CF00409D6A /* RatingListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RatingListVC.h; sourceTree = "<group>"; };
+		DB54A0361ED6E9CF00409D6A /* RatingListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RatingListVC.m; sourceTree = "<group>"; };
 		DB5E31401ECED05200A44445 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		DB7AB8931ED5C0A500A067D0 /* DetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailVC.h; sourceTree = "<group>"; };
 		DB7AB8941ED5C0A500A067D0 /* DetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailVC.m; sourceTree = "<group>"; };
@@ -334,6 +349,7 @@
 		DB0B4AEA1EC711BB005AAF8E /* Liabrary */ = {
 			isa = PBXGroup;
 			children = (
+				DB54A0261ED6DC5800409D6A /* StarRating */,
 				DB7F79051ED31ED9003D3A50 /* SDWebImage */,
 				DB0B4B341EC71F7B005AAF8E /* Google */,
 				DB0B4AEB1EC711BB005AAF8E /* AFNetworking */,
@@ -488,6 +504,7 @@
 		DB52B9D71EC6DE280082C04F /* UTMarket */ = {
 			isa = PBXGroup;
 			children = (
+				DB54A02F1ED6DDE700409D6A /* Reviews */,
 				DB7AB8961ED5C10400A067D0 /* DetailVC */,
 				DB7F78F81ED307B9003D3A50 /* HomeVC */,
 				DB7F78FF1ED31666003D3A50 /* DataLIstVC */,
@@ -561,6 +578,29 @@
 			);
 			path = Icon_img;
 			sourceTree = SOURCE_ROOT;
+		};
+		DB54A0261ED6DC5800409D6A /* StarRating */ = {
+			isa = PBXGroup;
+			children = (
+				DB54A0271ED6DC5800409D6A /* star1.png */,
+				DB54A0281ED6DC5800409D6A /* star_fill.png */,
+				DB54A0291ED6DC5800409D6A /* StarRatingControl.h */,
+				DB54A02A1ED6DC5800409D6A /* StarRatingControl.m */,
+			);
+			path = StarRating;
+			sourceTree = "<group>";
+		};
+		DB54A02F1ED6DDE700409D6A /* Reviews */ = {
+			isa = PBXGroup;
+			children = (
+				DB54A0301ED6DE2A00409D6A /* ViewRating.xib */,
+				DB54A0351ED6E9CF00409D6A /* RatingListVC.h */,
+				DB54A0361ED6E9CF00409D6A /* RatingListVC.m */,
+				DB54A0321ED6DF4D00409D6A /* GiveRatingVC.h */,
+				DB54A0331ED6DF4D00409D6A /* GiveRatingVC.m */,
+			);
+			name = Reviews;
+			sourceTree = "<group>";
 		};
 		DB7AB8961ED5C10400A067D0 /* DetailVC */ = {
 			isa = PBXGroup;
@@ -737,6 +777,7 @@
 				DB7F78F41ED300B7003D3A50 /* back_icon.png in Resources */,
 				DB52BA381EC6E70D0082C04F /* user.png in Resources */,
 				DB52BA161EC6E70D0082C04F /* back.png in Resources */,
+				DB54A02B1ED6DC5800409D6A /* star1.png in Resources */,
 				DB52BA191EC6E70D0082C04F /* chat.png in Resources */,
 				DB52BA391EC6E70D0082C04F /* vehicle_image.png in Resources */,
 				DB52BA2B1EC6E70D0082C04F /* log_out.png in Resources */,
@@ -748,6 +789,7 @@
 				DB52BA2D1EC6E70D0082C04F /* login_backgroung.png in Resources */,
 				DB52BA231EC6E70D0082C04F /* heart.png in Resources */,
 				DB52BA311EC6E70D0082C04F /* rupees.png in Resources */,
+				DB54A02C1ED6DC5800409D6A /* star_fill.png in Resources */,
 				DB52BA2E1EC6E70D0082C04F /* logo.png in Resources */,
 				DB52BA151EC6E70D0082C04F /* arrow_left.png in Resources */,
 				DB52BA301EC6E70D0082C04F /* profileimage.png in Resources */,
@@ -756,6 +798,7 @@
 				DB52BA361EC6E70D0082C04F /* sweethome.jpg in Resources */,
 				DB52BA2A1EC6E70D0082C04F /* line.png in Resources */,
 				DB52BA1F1EC6E70D0082C04F /* filter.png in Resources */,
+				DB54A0311ED6DE2A00409D6A /* ViewRating.xib in Resources */,
 				DB52B9E31EC6DE290082C04F /* Main.storyboard in Resources */,
 				DB0B4B3F1EC71F7B005AAF8E /* GoogleSignIn.bundle in Resources */,
 				DB52BA1B1EC6E70D0082C04F /* facebook.png in Resources */,
@@ -783,10 +826,11 @@
 				DB0B4B2D1EC711BB005AAF8E /* TPKeyboardAvoidingTableView.m in Sources */,
 				DB52B9E01EC6DE290082C04F /* ViewController.m in Sources */,
 				DB43D0EE1ED5A08F00C50157 /* DetailView.m in Sources */,
+				DB54A0341ED6DF4D00409D6A /* GiveRatingVC.m in Sources */,
 				DB0B4B1D1EC711BB005AAF8E /* AFHTTPRequestOperationManager.m in Sources */,
 				DB0B4B1F1EC711BB005AAF8E /* AFNetworkReachabilityManager.m in Sources */,
+				DB54A02D1ED6DC5800409D6A /* StarRatingControl.m in Sources */,
 				014D916E1ED592BD002A8346 /* UploadVC.m in Sources */,
-				DB7AB8951ED5C0A500A067D0 /* DetailVC.m in Sources */,
 				DB0B4B231EC711BB005AAF8E /* AFURLResponseSerialization.m in Sources */,
 				DB0B4B271EC711BB005AAF8E /* SVIndefiniteAnimatedView.m in Sources */,
 				DB7F792D1ED31ED9003D3A50 /* SDWebImageDownloaderOperation.m in Sources */,
@@ -820,6 +864,7 @@
 				DB7F78F71ED3013B003D3A50 /* HomeVC.m in Sources */,
 				DB7F79271ED31ED9003D3A50 /* MKAnnotationView+WebCache.m in Sources */,
 				DB52B9DD1EC6DE290082C04F /* AppDelegate.m in Sources */,
+				DB54A0371ED6E9CF00409D6A /* RatingListVC.m in Sources */,
 				DB7F792B1ED31ED9003D3A50 /* SDWebImageDecoder.m in Sources */,
 				014D916B1ED592A5002A8346 /* GallaryVC.m in Sources */,
 				DB7F792A1ED31ED9003D3A50 /* SDWebImageCompat.m in Sources */,
