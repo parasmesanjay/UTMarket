@@ -32,7 +32,6 @@
         [self setTextFieldBorder:txt];
     }
     
-    
 }
 
 - (void)didReceiveMemoryWarning {
