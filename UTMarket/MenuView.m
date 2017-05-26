@@ -65,7 +65,7 @@
         int count = 0;
         for (UIViewController *controller in nav_array)
         {
-            if ([controller isKindOfClass:[HomeVC class]])
+            if ([controller isKindOfClass:[ProfileEditVC class]])
             {
                 //Do not forget to import AnOldViewController.h
                 count++;
@@ -76,7 +76,7 @@
         if (count==0)
         {
             UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-            HomeVC *obj = [storybord instantiateViewControllerWithIdentifier:@"HomeVC"];
+            ProfileEditVC *obj = [storybord instantiateViewControllerWithIdentifier:@"ProfileEditVC"];
             [self.selfBack.navigationController pushViewController:obj animated:NO];
             
         }

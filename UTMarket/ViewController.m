@@ -201,14 +201,13 @@ didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
          
          @try {
              
-             //NSLog(@"%@",JSON);
+             NSLog(@"%@",JSON);
              if ([JSON[@"success"] integerValue] == 1)
              {
                  NSData *myData = [NSKeyedArchiver archivedDataWithRootObject:JSON[@"data"]];
                  [[NSUserDefaults standardUserDefaults] setObject:myData forKey:@"user_data_c"];
                
                  [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%@",JSON[@"data"][@"customer_id"]] forKey:@"UserID"];
-                 
                  
                   [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%@ %@",JSON[@"data"][@"firstname"],JSON[@"data"][@"lastname"]] forKey:@"name"];
 

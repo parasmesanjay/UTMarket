@@ -16,6 +16,9 @@
 #define BASE_URL_SOURCE @"http://www.townhouseapp.com"
 
 #define UserID [[NSUserDefaults standardUserDefaults]objectForKey:@"UserID"]
+#define Emailid [[NSUserDefaults standardUserDefaults]objectForKey:@"email"]
+
+
 #define User_name [[NSUserDefaults standardUserDefaults]objectForKey:@"name"]
 #define User_idendtity [[NSUserDefaults standardUserDefaults]objectForKey:@"identity"]
 
