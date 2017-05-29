@@ -17,6 +17,14 @@
     imgProfile.layer.cornerRadius = 50;
     imgProfile.layer.masksToBounds = YES;
     
+    NSData *userData = [[NSUserDefaults standardUserDefaults]objectForKey:@"user_data_c"];
+    NSDictionary *DictUserDetails = (NSDictionary*) [NSKeyedUnarchiver unarchiveObjectWithData:userData];
+    NSString *image = [NSString stringWithFormat:@"%@",DictUserDetails[@"image"]];
+    
+    UIImage *img = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:image]]];
+    
+    imgProfile.image = img;
+    
     lblName.text = User_name;
     
     [UIView animateWithDuration:0.2 animations:^{

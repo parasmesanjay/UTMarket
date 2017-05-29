@@ -955,6 +955,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01A88A151EDBFB7A002DDB3C /* ProfileEditVC.m in Sources */,
 				DB7F79361ED31ED9003D3A50 /* UIView+WebCacheOperation.m in Sources */,
 				0148147A1ED708AF005C1C06 /* MenuView.m in Sources */,
 				DB0B4B2F1EC711BB005AAF8E /* WebServiceCalls.m in Sources */,
@@ -969,8 +970,6 @@
 				DB54A02D1ED6DC5800409D6A /* StarRatingControl.m in Sources */,
 				014D916E1ED592BD002A8346 /* UploadVC.m in Sources */,
 				DB0B4B231EC711BB005AAF8E /* AFURLResponseSerialization.m in Sources */,
-				C3D706491ED820350037D8F4 /* Review_Statement_VC.m in Sources */,
-				C3D706451ED80B310037D8F4 /* ProfileEditVC.m in Sources */,
 				DB0B4B271EC711BB005AAF8E /* SVIndefiniteAnimatedView.m in Sources */,
 				DB7F792D1ED31ED9003D3A50 /* SDWebImageDownloaderOperation.m in Sources */,
 				014D91711ED592F7002A8346 /* UploadTypeVC.m in Sources */,
@@ -1139,6 +1138,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = PK56EG6Q57;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Liabrary",
@@ -1159,6 +1159,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = PK56EG6Q57;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Liabrary",

@@ -34,7 +34,13 @@
     _Lastnametxt.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Enter Last Name" attributes:@{NSForegroundColorAttributeName: [UIColor lightTextColor]}];
     _ContactTxt.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Enter Contact No." attributes:@{NSForegroundColorAttributeName: [UIColor lightTextColor]}];
     
+    NSData *userData = [[NSUserDefaults standardUserDefaults]objectForKey:@"user_data_c"];
+    NSDictionary *DictUserDetails = (NSDictionary*) [NSKeyedUnarchiver unarchiveObjectWithData:userData];
+    NSString *image = [NSString stringWithFormat:@"%@",DictUserDetails[@"image"]];
     
+    _UserImg.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:image]]];
+    
+    //[UpdateBtn setBackgroundImage:img forState:UIControlStateNormal];
 }
 
 -(IBAction)clickForupdateImg:(id)sender
@@ -85,9 +91,9 @@
 {
     NSData *userData = [[NSUserDefaults standardUserDefaults]objectForKey:@"user_data_c"];
     NSDictionary *DictUserDetails = (NSDictionary*) [NSKeyedUnarchiver unarchiveObjectWithData:userData];
-    NSString *txt = [NSString stringWithFormat:@"%@",DictUserDetails[@"email"]];
+    NSString *email = [NSString stringWithFormat:@"%@",DictUserDetails[@"email"]];
 
-    NSString *jsonString = [NSString stringWithFormat:@"{\"user_id\":\"%@\",\"email\":\"%@\",\"firstname\":\"%@\",\"lastname\":\"%@\",\"telephone\":\"%@\"}",UserID,txt,_Firstnametxt.text,_Lastnametxt.text,_ContactTxt.text];
+    NSString *jsonString = [NSString stringWithFormat:@"{\"user_id\":\"%@\",\"email\":\"%@\",\"firstname\":\"%@\",\"lastname\":\"%@\",\"telephone\":\"%@\"}",UserID,email,_Firstnametxt.text,_Lastnametxt.text,_ContactTxt.text];
     
     [WebServiceCalls POSTJSON:@"updateProfile" parameter:jsonString completionBlock:^(id JSON, WebServiceResult result)
      {
