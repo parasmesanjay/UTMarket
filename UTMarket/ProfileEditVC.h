@@ -10,6 +10,7 @@
 
 @interface ProfileEditVC : UIViewController<APPhotoPickerDelegate>{
 
+    IBOutlet UIButton *btnProfile;
     IBOutlet UIButton *UpdateBtn;
   //  IBOutlet UILabel *testlbl;
     

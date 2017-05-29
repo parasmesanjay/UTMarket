@@ -17,6 +17,14 @@
     imgProfile.layer.cornerRadius = 50;
     imgProfile.layer.masksToBounds = YES;
     
+    NSData *userData = [[NSUserDefaults standardUserDefaults]objectForKey:@"user_data_c"];
+    NSDictionary *DictUserDetails = (NSDictionary*) [NSKeyedUnarchiver unarchiveObjectWithData:userData];
+    NSString *image = [NSString stringWithFormat:@"%@",DictUserDetails[@"image"]];
+    
+    UIImage *img = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:image]]];
+    
+    imgProfile.image = img;
+    
     lblName.text = User_name;
     
     [UIView animateWithDuration:0.2 animations:^{
@@ -110,7 +118,9 @@
         UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"No" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action){  }];
         UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action)
                                    {
-                                       
+                                       [[NSUserDefaults standardUserDefaults] setObject:NULL forKey:@"user_data_c"];
+                                       [[NSUserDefaults standardUserDefaults] setObject:NULL forKey:@"UserID"];
+                                       [[NSUserDefaults standardUserDefaults] setObject:NULL forKey:@"name"];
                                        // **************** ****************
                                        
                                        NSArray *nav_array = [self.selfBack.navigationController viewControllers];
