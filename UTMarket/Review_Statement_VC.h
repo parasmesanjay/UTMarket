@@ -14,4 +14,7 @@
     
 }
 
+@property (nonatomic,strong) NSString *productid;
+@property (nonatomic,strong) NSArray *Array;
+
 @end

@@ -103,6 +103,28 @@
             
         }
     }
+    else if (sender.tag == 4)
+    {
+        NSArray *nav_array = [self.selfBack.navigationController viewControllers];
+        int count = 0;
+        for (UIViewController *controller in nav_array)
+        {
+            if ([controller isKindOfClass:[FeedbackVC class]])
+            {
+                //Do not forget to import AnOldViewController.h
+                count++;
+                [self.selfBack.navigationController popToViewController:controller animated:NO];
+                return;
+            }
+        }
+        if (count==0)
+        {
+            UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            FeedbackVC *obj = [storybord instantiateViewControllerWithIdentifier:@"FeedbackVC"];
+            [self.selfBack.navigationController pushViewController:obj animated:NO];
+            
+        }
+    }
     else if (sender.tag == 3)
     {
         UIAlertController *alertController = [UIAlertController  alertControllerWithTitle:@"Logout" message:@"Are you sure logout ?" preferredStyle:UIAlertControllerStyleAlert];
@@ -111,6 +133,9 @@
         UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action)
                                    {
                                        
+                                       
+                                       
+                                       [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"UserID"];
                                        // **************** ****************
                                        
                                        NSArray *nav_array = [self.selfBack.navigationController viewControllers];

@@ -19,6 +19,8 @@
     DetailView *viewDetail;
     
     NSDictionary *dic;
+    
+    NSString *id_work;
 }
 @end
 
@@ -37,6 +39,8 @@
     if (_tag == 0)
     {
         [AppDelegate AppDelegate].dic = _info;
+        id_work = _info[@"property_id"];
+
         [self showView:_info];
     }
     else
@@ -47,37 +51,48 @@
         {
             urlString = @"carSellerAndDealers";
             urlString = [NSString stringWithFormat:@"carSellerAndDealers&id=%@",_info[@"car_seller_dealer_id"]];
+            id_work = [NSString stringWithFormat:@"%@",_info[@"car_seller_dealer_id"]];
             
         }
         else if (_tag == 66)
         {
             urlString = @"carRenters";
             urlString = [NSString stringWithFormat:@"carRenters&id=%@",_info[@"car_renters_id"]];
-            
+            id_work = [NSString stringWithFormat:@"%@",_info[@"car_renters_id"]];
+
         }
         else if (_tag == 67)
         {
             urlString = @"carPartSellers";
             urlString = [NSString stringWithFormat:@"carPartSellers&id=%@",_info[@"car_part_seller_id"]];
+            id_work = [NSString stringWithFormat:@"%@",_info[@"car_part_seller_id"]];
+
             
         }
         else if (_tag == 68)
         {
             urlString = @"CarMechanicLocations";
             urlString = [NSString stringWithFormat:@"CarMechanicLocations&id=%@",_info[@"car_mechanic_location_id"]];
-            
+            id_work = [NSString stringWithFormat:@"%@",_info[@"car_mechanic_location_id"]];
+
         }
         else if (_tag == 71)
         {
             urlString = [NSString stringWithFormat:@"gameReserver&id=%@",_info[@"game_reserver_id"]];
+            id_work = [NSString stringWithFormat:@"%@",_info[@"game_reserver_id"]];
+
         }
         else if (_tag == 72)
         {
             urlString = [NSString stringWithFormat:@"site&id=%@",_info[@"site_id"]];
+            id_work = [NSString stringWithFormat:@"%@",_info[@"site_id"]];
+
         }
         else if (_tag == 70)
         {
             urlString = [NSString stringWithFormat:@"tourism&id=%@",_info[@"tourism_id"]];
+            id_work = [NSString stringWithFormat:@"%@",_info[@"tourism_id"]];
+
         }
         
         SVHUD_START
@@ -122,6 +137,7 @@
         viewDetail = [[[NSBundle mainBundle]loadNibNamed:@"DetailView" owner:self options:nil] objectAtIndex:0];
         [mainScroll addSubview:viewDetail];
         viewDetail.frame = CGRectMake(0,0, WIDTH, viewDetail.frame.size.height);
+        [viewDetail.btnSeeAllReviews addTarget:self action:@selector(seeAllReviews:) forControlEvents:UIControlEventTouchUpInside];
         
         if (self.tag == 0)
         {
@@ -685,6 +701,8 @@
         }
         
         [viewDetail.btnGiveReview addTarget:self action:@selector(tapGiveRating:) forControlEvents:UIControlEventTouchUpInside];
+        [viewDetail.btnSeeAllReviews addTarget:self action:@selector(seeAllReviews:) forControlEvents:UIControlEventTouchUpInside];
+
         
     } @catch (NSException *exception) {
         
@@ -697,11 +715,64 @@
 -(void)tapGiveRating:(UIButton *)sender
 {
     GiveRatingVC *obj = [[[NSBundle mainBundle]loadNibNamed:@"ViewRating" owner:self options:nil]objectAtIndex:0];
-    [AppDelegate AppDelegate].dic = dic;
+    // [AppDelegate AppDelegate].dic = dic;
     
     
     [self.navigationController pushViewController:obj animated:YES];    
 }
+
+-(void)seeAllReviews:(UIButton *)sender
+{
+    
+    [self GetReview];
+    
+    
+    
+    
+    
+    
+   
+  
+    
+}
+
+
+-(void)GetReview
+{
+    NSString *url;
+    url = [NSString stringWithFormat:@"getReviews&product_id=%@", id_work];
+    // SVHUD_START
+    
+    [WebServiceCalls GET:url parameter:nil completionBlock:^(id JSON, WebServiceResult result)
+     {
+         [SVProgressHUD dismiss];
+         
+         @try
+         {
+             NSLog(@"%@",JSON);
+             
+             
+             UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+             Review_Statement_VC *obj = [storybord instantiateViewControllerWithIdentifier:@"Review_Statement_VC"];
+             obj.Array = JSON[@"data"];
+             obj.productid = id_work;
+             [self.navigationController pushViewController:obj animated:NO];
+             
+             
+         }
+         @catch (NSException *exception)
+         {
+             [SVProgressHUD dismiss];
+         }
+         @finally
+         {
+             
+         }
+         
+     }];
+}
+
+
 
 -(UIView *)viewLabel:(NSString *)title
 {

@@ -32,4 +32,6 @@
 
 #import "ViewController.h"
 #import "ProfileEditVC.h"
+#import "Review_Statement_VC.h"
+#import "FeedbackVC.h"
 #endif

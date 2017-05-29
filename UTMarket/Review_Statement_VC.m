@@ -14,7 +14,9 @@
 
 @implementation Review_Statement_VC{
     NSArray *array;
+    NSInteger flag;
 }
+@synthesize Array;
 
 
 
@@ -22,16 +24,60 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    GET_HEADER_VIEW
     
+    header.lblTitle.text = @"Review";
+    
+    flag = 0;
     array = @[@"This is the demo statement. This is the demo statement. This is the demo statement. This is the demo statement. ",@" This is the demo statement. This is the demo statement.",@"This is the demo statement."];
+    
+ //   [self GetReview];
 }
+
+/*
+ GET Reviews API
+ Method : - /GET {product_id}
+ Parameter : - product_id = {3}
+ URL  : - http://appone.biz/UTMarket/index.php?route=feed/rest_api/getReviews&product_id=3 */
+
+//-(void)GetReview
+//{
+//    NSString *url;
+//    url = [NSString stringWithFormat:@"getReviews&product_id=%@", _productid];
+//    // SVHUD_START
+//    
+//    [WebServiceCalls GET:url parameter:nil completionBlock:^(id JSON, WebServiceResult result)
+//     {
+//         [SVProgressHUD dismiss];
+//         
+//         @try
+//         {
+//             NSLog(@"%@",JSON);
+//             array = JSON[@"data"];
+//
+//             
+//         }
+//         @catch (NSException *exception)
+//         {
+//             [SVProgressHUD dismiss];
+//         }
+//         @finally
+//         {
+//             
+//         }
+//         
+//     }];
+//}
+
+
+
 
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return array.count;
+    return Array.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -42,7 +88,7 @@
     viewstar.backgroundColor = [UIColor colorWithRed:83/255.0 green:163/255.0 blue:24/255.0 alpha:1.0];
     UILabel *starcount = [[UILabel alloc]initWithFrame:CGRectMake(5,0,15,20)];
     starcount.contentMode = NSTextAlignmentCenter;
-    starcount.text = @"5";
+    starcount.text = [NSString stringWithFormat: @"%@", Array[indexPath.row][@"rating"]];
     [starcount setFont: [starcount.font fontWithSize: 14]];
 
     starcount.textColor = WHITE_COLOR;
@@ -57,7 +103,13 @@
     
     
     UILabel *lblStatment = [[UILabel alloc]initWithFrame:CGRectMake(10, viewstar.frame.size.height + 15, WIDTH-20, 40)];
-    lblStatment.text = array[indexPath.row];
+    //if (flag==1) {
+        lblStatment.text = [NSString stringWithFormat:@"%@", Array[indexPath.row][@"text"]];
+
+   // }
+//    else{
+//    lblStatment.text = array[indexPath.row];
+//    }
     lblStatment.numberOfLines = 0;
     [lblStatment setFont: [lblStatment.font fontWithSize: 15]];
 
@@ -66,26 +118,26 @@
     
     UILabel *lblusername = [[UILabel alloc]initWithFrame:CGRectMake(10,lblStatment.frame.origin.y + lblStatment.frame.size.height , WIDTH/2 - 20, 40)];
     
-    lblusername.text = @"Upendra Singh";
+    lblusername.text = [NSString stringWithFormat:@"%@", Array[indexPath.row][@"author"]];;
     //[lblusername setFont: [lblusername.font fontWithSize: 15]];
     lblusername.font = [UIFont boldSystemFontOfSize:15];
     [cell addSubview:lblusername];
     
-    UILabel *lblfordate = [[UILabel alloc]initWithFrame:CGRectMake(lblusername.frame.size.width + 15, lblusername.frame.origin.y, WIDTH/4 +10, 40)];
+    UILabel *lblfordate = [[UILabel alloc]initWithFrame:CGRectMake(lblusername.frame.size.width + 15, lblusername.frame.origin.y, WIDTH/2 - 20, 40)];
     
-    lblfordate.text = @"26-05-2017";
+    lblfordate.text = Array[indexPath.row][@"date_added"];
     [lblfordate setFont: [lblfordate.font fontWithSize: 14]];
 
     
     [cell addSubview:lblfordate];
     
-    UILabel *lblfortime = [[UILabel alloc]initWithFrame:CGRectMake(lblfordate.frame.size.width + lblfordate.frame.origin.x , lblusername.frame.origin.y, WIDTH/4 - 20, 40)];
-    
-    lblfortime.text = @"10:10:10";
-    [lblfortime setFont: [lblfordate.font fontWithSize: 14]];
-
-    
-    [cell addSubview:lblfortime];
+//    UILabel *lblfortime = [[UILabel alloc]initWithFrame:CGRectMake(lblfordate.frame.size.width + lblfordate.frame.origin.x , lblusername.frame.origin.y, WIDTH/4 - 20, 40)];
+//    
+//    lblfortime.text = @"10:10:10";
+//    [lblfortime setFont: [lblfordate.font fontWithSize: 14]];
+//
+//    
+//    [cell addSubview:lblfortime];
 
     
     
@@ -103,12 +155,24 @@
     
     UILabel *lbl1 = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, WIDTH-20, 10)];
     lbl1.numberOfLines = 0;
-    lbl1.text = array[indexPath.row];
+    //if (flag==1)
+    //{
+        lbl1.text = [NSString stringWithFormat:@"%@", Array[indexPath.row][@"text"]];
+  //  }
+    
+//    else{
+//    
+//    lbl1.text = array[indexPath.row];
+//    }
     [lbl1 sizeToFit];
     
     
     return lbl1.frame.size.height + 70;
 }
+
+
+
+
 
 
 - (void)didReceiveMemoryWarning {
