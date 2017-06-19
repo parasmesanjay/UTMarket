@@ -34,4 +34,5 @@
 #import "ProfileEditVC.h"
 #import "Review_Statement_VC.h"
 #import "FeedbackVC.h"
+#import "ForgetPassVC.h"
 #endif

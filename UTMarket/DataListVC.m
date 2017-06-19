@@ -23,7 +23,7 @@
     [super viewDidLoad];
     
     GET_HEADER_VIEW_WITH_BACK
-    //header.lblTitle.text = @"Title";
+    header.lblTitle.text = _info[@"name"];
     
     
     [SVProgressHUD showWithStatus:@"Loading.."];
@@ -70,7 +70,7 @@
         [SVProgressHUD dismiss];
         @try
         {
-            // NSLog(@"%@",JSON);
+             NSLog(@"%@",JSON);
 
             arrDetail = JSON[@"data"];
             

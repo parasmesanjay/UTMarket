@@ -17,6 +17,10 @@
     IBOutlet UIView *TokenView;
     
     IBOutlet UITextField *txtmail;
+    IBOutlet UITextField *txtToken;
+    IBOutlet UITextField *txtNewPass;
+
+    
 }
 
 @end

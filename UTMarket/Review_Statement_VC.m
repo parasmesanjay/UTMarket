@@ -155,15 +155,9 @@
     
     UILabel *lbl1 = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, WIDTH-20, 10)];
     lbl1.numberOfLines = 0;
-    //if (flag==1)
-    //{
+   
         lbl1.text = [NSString stringWithFormat:@"%@", Array[indexPath.row][@"text"]];
-  //  }
-    
-//    else{
-//    
-//    lbl1.text = array[indexPath.row];
-//    }
+
     [lbl1 sizeToFit];
     
     

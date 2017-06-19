@@ -17,6 +17,7 @@
     NSInteger select_File;
     
     NSMutableArray *images;
+    NSData *image_data1;
 }
 
 @synthesize IsPhoto;
@@ -163,13 +164,25 @@
                     NSString *parameter = [NSString stringWithFormat:@"video"];
                     
                     [formData appendPartWithFileData:images[i] name:parameter fileName:fName mimeType:@"video/mp4"];
-                    //video/mp4
+                    
+//                    image_data1 = UIImageJPEGRepresentation(imgThumb.image,0.1);
+//                    
+//                    NSString *date1 = [self isDateTime];
+//
+//
+//                    NSString *fName1 = [NSString stringWithFormat:@"%@_image%d_iPhone.jpg", date1, i];
+//                    
+//                    NSString *parameter1 = [NSString stringWithFormat:@"image"];
+//                    
+//                    [formData appendPartWithFileData:image_data1 name:parameter1 fileName:fName1 mimeType:@"image/jpeg"];
+                    
+                    
                 }
                 else
                 {
                     UIImage *img = images[i];
                     
-                    NSData *image_data1 = UIImageJPEGRepresentation(img,0.1);
+                    image_data1 = UIImageJPEGRepresentation(img,0.1);
                     
                     NSString *date = [self isDateTime];
                     
@@ -184,12 +197,11 @@
          {
             @try
             {
-                NSMutableArray * responseJson = [[NSMutableArray alloc]init];
-                responseJson = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
+                id responseJson = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
                 
                 NSLog(@"%@",responseJson);
                                 
-                if ([responseObject[@"success"] integerValue] == 1)
+                if ([responseJson[@"success"] integerValue] == 1)
                 {
                     
                     /*[barProgress setProgress:1.0];

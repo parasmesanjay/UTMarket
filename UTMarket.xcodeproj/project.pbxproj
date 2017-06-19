@@ -26,8 +26,7 @@
 		C3B126261EDC2BD6006C746B /* FeedbackVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C3B126251EDC2BD6006C746B /* FeedbackVC.m */; };
 		C3B126281EDC2DB7006C746B /* feed.png in Resources */ = {isa = PBXBuildFile; fileRef = C3B126271EDC2DB7006C746B /* feed.png */; };
 		C3B1262C1EDC3A6E006C746B /* ForgetPassVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C3B1262B1EDC3A6E006C746B /* ForgetPassVC.m */; };
-		C3D706451ED80B310037D8F4 /* ProfileEditVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C3D706441ED80B310037D8F4 /* ProfileEditVC.m */; };
-		C3D706491ED820350037D8F4 /* Review_Statement_VC.m in Sources */ = {isa = PBXBuildFile; fileRef = C3D706481ED820350037D8F4 /* Review_Statement_VC.m */; };
+		C3B1262D1EDC5E97006C746B /* ProfileEditVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C3D706441ED80B310037D8F4 /* ProfileEditVC.m */; };
 		C3D7064B1ED8372B0037D8F4 /* starrr.png in Resources */ = {isa = PBXBuildFile; fileRef = C3D7064A1ED8372B0037D8F4 /* starrr.png */; };
 		DB0B4B1C1EC711BB005AAF8E /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = DB0B4AED1EC711BB005AAF8E /* AFHTTPRequestOperation.m */; };
 		DB0B4B1D1EC711BB005AAF8E /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DB0B4AEF1EC711BB005AAF8E /* AFHTTPRequestOperationManager.m */; };
@@ -955,12 +954,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01A88A151EDBFB7A002DDB3C /* ProfileEditVC.m in Sources */,
 				DB7F79361ED31ED9003D3A50 /* UIView+WebCacheOperation.m in Sources */,
 				0148147A1ED708AF005C1C06 /* MenuView.m in Sources */,
 				DB0B4B2F1EC711BB005AAF8E /* WebServiceCalls.m in Sources */,
 				014814761ED70071005C1C06 /* VideoViewVC.m in Sources */,
 				DB0B4B1C1EC711BB005AAF8E /* AFHTTPRequestOperation.m in Sources */,
+				C3B1262D1EDC5E97006C746B /* ProfileEditVC.m in Sources */,
 				DB0B4B2D1EC711BB005AAF8E /* TPKeyboardAvoidingTableView.m in Sources */,
 				DB52B9E01EC6DE290082C04F /* ViewController.m in Sources */,
 				DB43D0EE1ED5A08F00C50157 /* DetailView.m in Sources */,
